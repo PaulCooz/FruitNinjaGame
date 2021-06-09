@@ -153,8 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushLines:
-  - {x: -1, y: 0, z: 1, w: 0}
-  - {x: -5, y: -3, z: -3, w: -5}
+  - {x: -7, y: -6, z: 7, w: -6}
+  - {x: -11, y: -1, z: -11, w: 3}
+  - {x: 11, y: -1, z: 11, w: 3}
   fruitToPush: {fileID: 8985597114038850856, guid: c653212a350975544802a8f6f0275cb8, type: 3}
 --- !u!4 &488790491
 Transform:
