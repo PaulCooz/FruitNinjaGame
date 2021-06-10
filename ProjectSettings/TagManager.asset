@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - fruit
+  - background
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - fruit
   - Water
   - UI
   - 
@@ -40,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: fruit
+    uniqueID: 2294922779
     locked: 0
