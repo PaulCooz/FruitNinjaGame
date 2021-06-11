@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
     public float Gravity = -100.0f;
-    private Vector2 Mid;
+    public float Speed = 2;
+    
     private Vector2 Bottom;
     private Vector2 Direction;
     private float LifeTime;
@@ -13,7 +12,7 @@ public class Fruit : MonoBehaviour
 
     void Start()
     {
-        Mid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
+        Vector2 Mid = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
         Bottom = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
 
         Vector2 startPosition = new Vector2(transform.position.x, transform.position.y);
@@ -23,16 +22,19 @@ public class Fruit : MonoBehaviour
 
         CanDelete = false;
     }
-    void OnBecameInvisible()
+
+    void OnBecameVisible()
     {
         CanDelete = true;
     }
 
     void Update()
     {
-        Vector3 move = new Vector3(Direction.x, Direction.y + Gravity * LifeTime, 0);
-        transform.Translate(move * Time.deltaTime);
-        LifeTime += Time.deltaTime;
+        float DeltaTime = Time.deltaTime * Speed;
+        Vector3 Move = new Vector3(Direction.x, Direction.y + Gravity * LifeTime, 0);
+
+        transform.Translate(Move * DeltaTime);
+        LifeTime += DeltaTime;
 
         if (transform.position.y < Bottom.y && CanDelete)
         {
