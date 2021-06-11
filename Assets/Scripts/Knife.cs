@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
+    [Range(0, 60)] public float LifeTime;
     public GameObject CutLine;
-    public float LifeTime;
 
     private bool Touching;
     private Vector2 PreviousDot;
 
     private void Start()
     {
-        Touching = false;    
+        Touching = false;
     }
 
     void Update()
