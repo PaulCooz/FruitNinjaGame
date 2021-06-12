@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
-    [Range(0, 60)] public float LifeTime;
+    [Range(0, 60)] 
+    public float LifeTime;
     public GameObject CutLine;
 
     private bool Touching;

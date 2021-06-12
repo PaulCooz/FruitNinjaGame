@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    public Health.HP HeartOnFall = Health.HP.Remove;
     public float Gravity = -100.0f;
     public float Speed = 2;
-    
+
     private Vector2 Bottom;
     private Vector2 Direction;
     private float LifeTime;
@@ -38,7 +39,14 @@ public class Fruit : MonoBehaviour
 
         if (transform.position.y < Bottom.y && CanDelete)
         {
-            Destroy(gameObject);
+            RemoveFruit();
         }
+    }
+
+    void RemoveFruit()
+    {
+        GameObject.Find("Hearts").transform.GetComponent<Health>().Check(HeartOnFall);
+
+        Destroy(gameObject);
     }
 }

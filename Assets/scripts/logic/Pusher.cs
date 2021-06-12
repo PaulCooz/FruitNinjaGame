@@ -3,7 +3,8 @@ using UnityEngine;
 public class Pusher : MonoBehaviour
 {
     public GameObject[] FruitToPush = new GameObject[0];
-    [Range(0, 100)] public float SpawnLengthInProcent;
+    [Range(0, 100)]
+    public float SpawnLengthInProcent;
 
     private Vector2 PushLineStart;
     private Vector2 PushLineEnd;
@@ -44,9 +45,17 @@ public class Pusher : MonoBehaviour
         float ReduceZone = (100 - SpawnLengthInProcent) / 2 / 100;
         float Ratio = Random.Range(0 + ReduceZone, 1 - ReduceZone);
         Vector2 StartPosition = PushLineStart + Ratio * (PushLineEnd - PushLineStart);
+
+        GameObject NewFruit = Instantiate(FruitToPush[RandomFruit()], StartPosition, Quaternion.identity);
+        NewFruit.transform.SetParent(transform);
+    }
+
+    int RandomFruit()
+    {
         int RandomIndex = Random.Range(0, FruitToPush.Length);
 
-        GameObject NewFruit = Instantiate(FruitToPush[RandomIndex], StartPosition, Quaternion.identity);
-        NewFruit.transform.SetParent(transform);
+        print("Push " + FruitToPush[RandomIndex].name);
+
+        return RandomIndex;
     }
 }

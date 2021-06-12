@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class DestroyOnSwipe : MonoBehaviour
+public class OnSwipe : MonoBehaviour
 {
-    [Range(0, 10000)] public float MinSpeed = 0;
+    [Range(0, 10000)] 
+    public float MinSpeed = 0;
+    public int PointsForCut = 1;
+    public Health.HP HeartOnSwipe = Health.HP.Nothing;
 
     private Vector2 PreviousPosition;
     private float PreviousTime;
@@ -19,11 +22,19 @@ public class DestroyOnSwipe : MonoBehaviour
 
             if (Vector2.Distance(transform.position, CurrentMousePosition) <= Radius && Speed >= MinSpeed)
             {
-                Destroy(gameObject);
+                CuttingFruit();
             }
 
             PreviousPosition = CurrentMousePosition;
             PreviousTime = Time.time;
         }
+    }
+
+    void CuttingFruit()
+    {
+        GameObject.Find("ScoreText").transform.GetComponent<ScoreText>().Score += PointsForCut;
+        GameObject.Find("Hearts").transform.GetComponent<Health>().Check(HeartOnSwipe);
+
+        Destroy(gameObject);
     }
 }

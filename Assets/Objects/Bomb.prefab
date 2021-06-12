@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02ba1a7be61f024e996b2bcb72fc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeartOnFall: 2
   Gravity: -100
   Speed: 1
 --- !u!114 &-7544248680947396474
@@ -111,3 +112,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinSpeed: 1000
+  PointsForCut: 0
+  HeartOnSwipe: 1
