@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b46c9f3c90e4e4a9fe7ce13913c4da, type: 3}
+  m_Name: ConfigFile
+  m_EditorClassIdentifier: 
+  HeartPref: {fileID: 2121965580859795322, guid: 9ae2f41a081408f4292a29804ea12069, type: 3}
+  MaxHP: 4
+  StartHP: 3
+  FruitToPush:
+  - {fileID: 8985597114038850856, guid: c653212a350975544802a8f6f0275cb8, type: 3}
+  - {fileID: 8985597114038850856, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
+  - {fileID: 8985597114038850856, guid: 1004e9fbeea1abf40b8c15becacac14a, type: 3}
+  - {fileID: 8985597114038850856, guid: cb1beac36ef39e248a7316f421709342, type: 3}
+  - {fileID: 8985597114038850856, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
+  - {fileID: 8985597114038850856, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
+  SpawnLengthInProcent: 50
+  CutLine: {fileID: 6541802807178343406, guid: f25288978f816b0428e0840d0a7c3185, type: 3}
+  LifeTime: 0.1
+  Gravity: -100
+  MinSpeed: 500

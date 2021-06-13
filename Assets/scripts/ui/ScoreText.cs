@@ -3,9 +3,8 @@ using UnityEngine.UI;
 
 public class ScoreText : MonoBehaviour
 {
-    public string CurrentText = "score: ";
-    public string BestText = "best: ";
-
+    private string CurrentScoreText = "score: ";
+    private string BestScoreText = "<size=50>best: </size>";
     private int CurrentScore;
     private int BestScore;
 
@@ -34,12 +33,12 @@ public class ScoreText : MonoBehaviour
 
             if (BestScore == CurrentScore)
             {
-                GetComponent<Text>().text = CurrentText + CurrentScore;
+                GetComponent<Text>().text = CurrentScoreText + CurrentScore;
             }
             else
             {
-                GetComponent<Text>().text = CurrentText + CurrentScore + "\n" +
-                                            BestText + BestScore;
+                GetComponent<Text>().text = CurrentScoreText + CurrentScore + "\n" +
+                                            BestScoreText + BestScore;
             }
         }
     }

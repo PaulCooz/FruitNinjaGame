@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    public ConfigScript Config;
     public Health.HP HeartOnFall = Health.HP.Remove;
-    public float Gravity = -100.0f;
     public float Speed = 2;
 
     private Vector2 Bottom;
@@ -32,7 +32,7 @@ public class Fruit : MonoBehaviour
     void Update()
     {
         float DeltaTime = Time.deltaTime * Speed;
-        Vector3 Move = new Vector3(Direction.x, Direction.y + Gravity * LifeTime, 0);
+        Vector3 Move = new Vector3(Direction.x, Direction.y + Config.Gravity * LifeTime, 0);
 
         transform.Translate(Move * DeltaTime);
         LifeTime += DeltaTime;

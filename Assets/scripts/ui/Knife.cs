@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
-    [Range(0, 60)] 
-    public float LifeTime;
-    public GameObject CutLine;
+    public ConfigScript Config;    
 
     private bool Touching;
     private Vector2 PreviousDot;
@@ -39,12 +37,12 @@ public class Knife : MonoBehaviour
 
     void MakeNewLine(Vector2 StartDot, Vector2 EndDot)
     {
-        GameObject Line = Instantiate(CutLine, StartDot, Quaternion.identity);
+        GameObject Line = Instantiate(Config.CutLine, StartDot, Quaternion.identity);
 
         Line.GetComponent<LineRenderer>().SetPosition(0, StartDot);
         Line.GetComponent<LineRenderer>().SetPosition(1, EndDot);
         Line.transform.SetParent(transform);
 
-        Destroy(Line, LifeTime);
+        Destroy(Line, Config.LifeTime);
     }
 }

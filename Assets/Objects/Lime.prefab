@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2000044517
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: -1471540737
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 41ea730016287f7488f3d8aaa66af789, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02ba1a7be61f024e996b2bcb72fc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gravity: -100
+  Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
+  HeartOnFall: 1
   Speed: 1
 --- !u!114 &2112066678352900152
 MonoBehaviour:
@@ -110,6 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d5af36ab7169b4095bfa2416e187e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSpeed: 1000
+  Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   PointsForCut: 1
-  Heart: 2
+  HeartOnSwipe: 2

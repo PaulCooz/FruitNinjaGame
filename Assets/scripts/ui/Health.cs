@@ -8,14 +8,13 @@ public class Health : MonoBehaviour
         Add, Remove, Nothing
     }
 
-    public GameObject HeartPref;
-    public int MaxHP = 5;
-    public int StartHP = 3;
+    public ConfigScript Config;
+    public GameObject Popup;
     public Stack<GameObject> Hearts = new Stack<GameObject>();
 
     private void Start()
     {
-        for (int i = 0; i < StartHP; i++)
+        for (int i = 0; i < Config.StartHP; i++)
         {
             AddHeart();
         }
@@ -23,20 +22,21 @@ public class Health : MonoBehaviour
 
     public void AddHeart()
     {
-        if (Hearts.Count >= MaxHP) return;
+        if (Hearts.Count >= Config.MaxHP) return;
 
-        Hearts.Push(Instantiate(HeartPref, transform));
+        Hearts.Push(Instantiate(Config.HeartPref, transform));
     }
 
     public void RemoveHeart()
     {
-        if (Hearts.Count <= 0)
-        {
-            print("game over!");
-        }
-        else
+        if (Hearts.Count > 0)
         {
             Destroy(Hearts.Pop());
+        }
+
+        if (Hearts.Count <= 0)
+        {
+            Popup.SetActive(true);
         }
     }
 

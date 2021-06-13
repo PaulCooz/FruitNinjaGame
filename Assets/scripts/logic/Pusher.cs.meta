@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - fruitToPush: {instanceID: 0}
+  - Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

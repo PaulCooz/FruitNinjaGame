@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class OnSwipe : MonoBehaviour
 {
-    [Range(0, 10000)] 
-    public float MinSpeed = 0;
+    public ConfigScript Config;
     public int PointsForCut = 1;
     public Health.HP HeartOnSwipe = Health.HP.Nothing;
 
@@ -20,7 +19,10 @@ public class OnSwipe : MonoBehaviour
             Vector2 CurrentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Speed = Vector2.Distance(CurrentMousePosition, PreviousPosition) / (Time.time - PreviousTime);
 
-            if (Vector2.Distance(transform.position, CurrentMousePosition) <= Radius && Speed >= MinSpeed)
+            bool near = Vector2.Distance(transform.position, CurrentMousePosition) <= Radius;
+            bool fast = Speed >= Config.MinSpeed;
+
+            if (near && fast)
             {
                 CuttingFruit();
             }
