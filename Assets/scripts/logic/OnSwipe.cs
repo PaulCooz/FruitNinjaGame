@@ -3,8 +3,11 @@ using UnityEngine;
 public class OnSwipe : MonoBehaviour
 {
     public ConfigScript Config;
-    public int PointsForCut = 1;
-    public Health.HP HeartOnSwipe = Health.HP.Nothing;
+    public int PointsForCut;
+    public Health.HP HeartOnSwipe;
+    public bool HaveHalves;
+    public GameObject Half0;
+    public GameObject Half1;
 
     private Vector2 PreviousPosition;
     private float PreviousTime;
@@ -37,6 +40,23 @@ public class OnSwipe : MonoBehaviour
         GameObject.Find("ScoreText").transform.GetComponent<ScoreText>().Score += PointsForCut;
         GameObject.Find("Hearts").transform.GetComponent<Health>().Check(HeartOnSwipe);
 
+        if (HaveHalves)
+        {
+            MakeHalf(Half0, Config.DeviationHalfByX);
+            MakeHalf(Half1, -Config.DeviationHalfByX);
+        }
+
         Destroy(gameObject);
+    }
+
+    void MakeHalf(GameObject Half, float RatioX)
+    {
+        GameObject FirstHalf = Instantiate(Half, transform.position, Quaternion.identity);
+        Fruit CurrentFruit = gameObject.GetComponent<Fruit>();
+        Vector2 Direction = new Vector2(CurrentFruit.Direction.x * RatioX, 0);
+
+        FirstHalf.GetComponent<Half>().Bottom = CurrentFruit.Bottom;
+        FirstHalf.GetComponent<Half>().Direction = Direction;
+        FirstHalf.GetComponent<Half>().LifeTime = CurrentFruit.LifeTime;
     }
 }

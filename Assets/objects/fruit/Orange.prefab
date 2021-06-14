@@ -99,6 +99,10 @@ MonoBehaviour:
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   HeartOnFall: 1
   Speed: 1
+  Bottom: {x: 0, y: 0}
+  Direction: {x: 0, y: 0}
+  LifeTime: 0
+  CanDelete: 0
 --- !u!114 &-580504610028696490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,3 +118,8 @@ MonoBehaviour:
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   PointsForCut: 1
   HeartOnSwipe: 2
+  HaveHalves: 1
+  Half0: {fileID: 6658355727617149343, guid: 2eb8189928766e643a1f7aa31559f84c, type: 3}
+  Half1: {fileID: 2376915473089824151, guid: 6d3f771c3f5318243a914f6e870c2a60, type: 3}
+  HalfXRatio: 0.5
+  HalfSpeedRatio: 2

@@ -15,15 +15,43 @@ MonoBehaviour:
   HeartPref: {fileID: 2121965580859795322, guid: 9ae2f41a081408f4292a29804ea12069, type: 3}
   MaxHP: 4
   StartHP: 3
-  FruitToPush:
-  - {fileID: 8985597114038850856, guid: c653212a350975544802a8f6f0275cb8, type: 3}
-  - {fileID: 8985597114038850856, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
-  - {fileID: 8985597114038850856, guid: 1004e9fbeea1abf40b8c15becacac14a, type: 3}
-  - {fileID: 8985597114038850856, guid: cb1beac36ef39e248a7316f421709342, type: 3}
-  - {fileID: 8985597114038850856, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
-  - {fileID: 8985597114038850856, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
-  SpawnLengthInProcent: 50
   CutLine: {fileID: 6541802807178343406, guid: f25288978f816b0428e0840d0a7c3185, type: 3}
   LifeTime: 0.1
+  FruitToPush:
+  - PushingObject: {fileID: 8985597114038850856, guid: c653212a350975544802a8f6f0275cb8, type: 3}
+    Chance: 4
+  - PushingObject: {fileID: 8985597114038850856, guid: cb1beac36ef39e248a7316f421709342, type: 3}
+    Chance: 4
+  - PushingObject: {fileID: 8985597114038850856, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
+    Chance: 4
+  - PushingObject: {fileID: 8985597114038850856, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
+    Chance: 4
+  - PushingObject: {fileID: 8985597114038850856, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
+    Chance: 2
+  - PushingObject: {fileID: 8985597114038850856, guid: 1004e9fbeea1abf40b8c15becacac14a, type: 3}
+    Chance: 1
+  PushLine:
+  - StartX: 0.3
+    StartY: 0
+    EndX: 0.7
+    EndY: 0
+    Chance: 4
+  - StartX: 0
+    StartY: 0.2
+    EndX: 0
+    EndY: 0.5
+    Chance: 1
+  - StartX: 1
+    StartY: 0.2
+    EndX: 1
+    EndY: 0.5
+    Chance: 1
+  TimeBetweenPacks: 2
+  TimeBetweenFruit: 0.2
+  MaxPack: 5
+  DeviationFromCenter: 0.1
+  Speed: 1
+  HalfSpeed: 2
+  DeviationHalfByX: 0.5
   Gravity: -100
   MinSpeed: 500
