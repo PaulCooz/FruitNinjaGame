@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class Pusher : MonoBehaviour
 {
-    public ConfigScript Config;
-
     private float TimeToNextPush;
     private int CurrentQuantity;
 
+    public ConfigScript Config;
+
     private void Start()
     {
-        TimeToNextPush = 0;
+        TimeToNextPush = 1;
         CurrentQuantity = 1;
     }
 
-    void Update()
+    private void Update()
     {
+        if (EventManager.isGameOver) return;
+
         if (TimeToNextPush <= 0)
         {
             if (CurrentQuantity > 0)
@@ -33,13 +35,13 @@ public class Pusher : MonoBehaviour
         TimeToNextPush -= Time.deltaTime;
     }
 
-    void PushNewFruit()
+    private void PushNewFruit()
     {
         GameObject NewFruit = Instantiate(RandomFruit(), RandomStartPosition(), Quaternion.identity);
         NewFruit.transform.SetParent(transform);
     }
 
-    GameObject RandomFruit()
+    private GameObject RandomFruit()
     {
         int SumOfChanges = 0;
         for (int i = 0; i < Config.FruitToPush.Length; i++)
@@ -63,7 +65,7 @@ public class Pusher : MonoBehaviour
         return Config.FruitToPush[RandomIndex].PushingObject;
     }
 
-    Vector2 RandomStartPosition()
+    private Vector2 RandomStartPosition()
     {
         int SumOfChanges = 0;
         for (int i = 0; i < Config.PushLine.Length; i++)
@@ -84,15 +86,15 @@ public class Pusher : MonoBehaviour
             }
         }
 
-        Vector2 PushLineStart = GetPosition(Config.PushLine[RandomIndex].StartX, Config.PushLine[RandomIndex].StartY);
-        Vector2 PushLineEnd = GetPosition(Config.PushLine[RandomIndex].EndX, Config.PushLine[RandomIndex].EndY);
+        float StartX = Config.PushLine[RandomIndex].StartX;
+        float StartY = Config.PushLine[RandomIndex].StartY;
+        float EndX = Config.PushLine[RandomIndex].EndX;
+        float EndY = Config.PushLine[RandomIndex].EndY;
+
+        Vector2 PushLineStart = View.GetPosition(StartX, StartY);
+        Vector2 PushLineEnd = View.GetPosition(EndX, EndY);
         float Ratio = Random.Range(0.0f, 1.0f);
 
         return PushLineStart + Ratio * (PushLineEnd - PushLineStart);
-    }
-
-    Vector2 GetPosition(float x, float y)
-    {
-        return Camera.main.ViewportToWorldPoint(new Vector2(x, y));
     }
 }

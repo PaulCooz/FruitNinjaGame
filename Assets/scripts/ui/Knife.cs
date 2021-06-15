@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
-    public ConfigScript Config;    
-
     private bool Touching;
     private Vector2 PreviousDot;
+
+    public ConfigScript Config;    
 
     private void Start()
     {
         Touching = false;
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 CurrentDot = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 CurrentDot = View.ToWorldPoint(Input.mousePosition);
 
             PreviousDot = CurrentDot;
             Touching = true;
@@ -28,14 +28,14 @@ public class Knife : MonoBehaviour
 
         if (Touching)
         {
-            Vector2 CurrentDot = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 CurrentDot = View.ToWorldPoint(Input.mousePosition);
 
             MakeNewLine(PreviousDot, CurrentDot);
             PreviousDot = CurrentDot;
         }
     }
 
-    void MakeNewLine(Vector2 StartDot, Vector2 EndDot)
+    private void MakeNewLine(Vector2 StartDot, Vector2 EndDot)
     {
         GameObject Line = Instantiate(Config.CutLine, StartDot, Quaternion.identity);
 

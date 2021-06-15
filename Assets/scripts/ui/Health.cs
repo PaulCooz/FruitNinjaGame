@@ -9,10 +9,15 @@ public class Health : MonoBehaviour
     }
 
     public ConfigScript Config;
-    public GameObject Popup;
     public Stack<GameObject> Hearts = new Stack<GameObject>();
 
     private void Start()
+    {
+        EventManager.OnSartGameEvent += AddHearts;
+        AddHearts();
+    }
+
+    public void AddHearts()
     {
         for (int i = 0; i < Config.StartHP; i++)
         {
@@ -22,7 +27,7 @@ public class Health : MonoBehaviour
 
     public void AddHeart()
     {
-        if (Hearts.Count >= Config.MaxHP) return;
+        if (Hearts.Count >= Config.MaxHP || EventManager.isGameOver) return;
 
         Hearts.Push(Instantiate(Config.HeartPref, transform));
     }
@@ -36,7 +41,7 @@ public class Health : MonoBehaviour
 
         if (Hearts.Count <= 0)
         {
-            Popup.SetActive(true);
+            EventManager.GameOver();
         }
     }
 
@@ -50,5 +55,10 @@ public class Health : MonoBehaviour
         {
             RemoveHeart();
         }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnSartGameEvent -= AddHearts;
     }
 }

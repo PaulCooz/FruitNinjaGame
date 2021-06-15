@@ -4,7 +4,7 @@ public class Half : MonoBehaviour
 {
     public ConfigScript Config;
     [System.NonSerialized]
-    public Vector2 Bottom;
+    public float MinY;
     [System.NonSerialized]
     public Vector2 Direction;
     [System.NonSerialized]
@@ -18,7 +18,7 @@ public class Half : MonoBehaviour
         transform.Translate(Move * DeltaTime);
         LifeTime += DeltaTime;
 
-        if (transform.position.y < Bottom.y)
+        if (transform.position.y < MinY)
         {
             Destroy(gameObject);
         }

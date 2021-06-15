@@ -9,7 +9,13 @@ public class ScoreText : MonoBehaviour
     private int CurrentScore;
     private int BestScore;
 
-    void Start()
+    private void Start()
+    {
+        EventManager.OnSartGameEvent += SetStartScore;
+        SetStartScore();
+    }
+
+    private void SetStartScore()
     {
         CurrentScore = 0;
         BestScore = LoadScore();
@@ -33,26 +39,27 @@ public class ScoreText : MonoBehaviour
                 SaveScore(BestScore);
             }
 
-            if (BestScore == CurrentScore)
+            GetComponent<Text>().text = CurrentScoreText + CurrentScore;
+            if (BestScore != CurrentScore)
             {
-                GetComponent<Text>().text = CurrentScoreText + CurrentScore;
-            }
-            else
-            {
-                GetComponent<Text>().text = CurrentScoreText + CurrentScore + "\n" +
-                                            BestScoreText + BestScore;
+                GetComponent<Text>().text += "\n" + BestScoreText + BestScore;
             }
         }
     }
 
-    int LoadScore()
+    private int LoadScore()
     {
         return PlayerPrefs.GetInt(BestScoreKey, 0);
     }
 
-    void SaveScore(int CurrentBest)
+    private void SaveScore(int CurrentBest)
     {
         PlayerPrefs.SetInt(BestScoreKey, CurrentBest);
         PlayerPrefs.Save();
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnSartGameEvent -= SetStartScore;
     }
 }

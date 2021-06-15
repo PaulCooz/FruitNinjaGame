@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class OnSwipe : MonoBehaviour
 {
+    private Vector2 PreviousPosition;
+    private float PreviousTime;
+
     public ConfigScript Config;
     public int PointsForCut;
     public Health.HP HeartOnSwipe;
@@ -9,18 +12,15 @@ public class OnSwipe : MonoBehaviour
     public GameObject Half0;
     public GameObject Half1;
 
-    private Vector2 PreviousPosition;
-    private float PreviousTime;
-
-    void Update()
+    private void Update()
     {
+        if (EventManager.isGameOver) return;
+
         if (Input.GetMouseButton(0))
         {
-            Sprite FruitSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-            float Radius = transform.localScale.x / FruitSprite.pixelsPerUnit * FruitSprite.textureRect.size.x / 2;
-
-            Vector2 CurrentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 CurrentMousePosition = View.ToWorldPoint(Input.mousePosition);
             float Speed = Vector2.Distance(CurrentMousePosition, PreviousPosition) / (Time.time - PreviousTime);
+            float Radius = View.GetSpriteSize(gameObject).x / 2;
 
             bool near = Vector2.Distance(transform.position, CurrentMousePosition) <= Radius;
             bool fast = Speed >= Config.MinSpeed;
@@ -35,7 +35,7 @@ public class OnSwipe : MonoBehaviour
         }
     }
 
-    void CuttingFruit()
+    private void CuttingFruit()
     {
         GameObject.Find("ScoreText").transform.GetComponent<ScoreText>().Score += PointsForCut;
         GameObject.Find("Hearts").transform.GetComponent<Health>().Check(HeartOnSwipe);
@@ -49,13 +49,13 @@ public class OnSwipe : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void MakeHalf(GameObject Half, float RatioX)
+    private void MakeHalf(GameObject Half, float RatioX)
     {
         GameObject FirstHalf = Instantiate(Half, transform.position, Quaternion.identity);
         Fruit CurrentFruit = gameObject.GetComponent<Fruit>();
         Vector2 Direction = new Vector2(CurrentFruit.Direction.x * RatioX, 0);
 
-        FirstHalf.GetComponent<Half>().Bottom = CurrentFruit.Bottom;
+        FirstHalf.GetComponent<Half>().MinY = CurrentFruit.MinY;
         FirstHalf.GetComponent<Half>().Direction = Direction;
         FirstHalf.GetComponent<Half>().LifeTime = CurrentFruit.LifeTime;
     }

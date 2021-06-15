@@ -37,19 +37,19 @@ MonoBehaviour:
     EndY: 0
     Chance: 4
   - StartX: 0
-    StartY: 0.2
+    StartY: 0.4
     EndX: 0
-    EndY: 0.5
+    EndY: 0.6
     Chance: 1
   - StartX: 1
-    StartY: 0.2
+    StartY: 0.4
     EndX: 1
-    EndY: 0.5
+    EndY: 0.6
     Chance: 1
   TimeBetweenPacks: 2
   TimeBetweenFruit: 0.2
   MaxPack: 5
-  DeviationFromCenter: 0.1
+  DeviationFromCenterByX: 0.1
   Speed: 1
   HalfSpeed: 2
   DeviationHalfByX: 0.5
