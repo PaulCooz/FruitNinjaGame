@@ -45,8 +45,8 @@ public class ConfigScript : ScriptableObject
     [Header("\tFRUIT")]
     [Range(0, 1)]
     public float DeviationFromCenterByX = 0.1f;
-    public float Speed = 2;
-    public float HalfSpeed = 4;
+    public float Force = 200;
+    public float TimeSpeed = 3;
     public float DeviationHalfByX = 0.5f;
     public float Gravity = -100.0f;
 

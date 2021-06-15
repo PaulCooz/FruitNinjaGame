@@ -7,7 +7,7 @@ public class LastScore : MonoBehaviour
 
     private void OnEnable()
     {
-        int CurrentScore = GameObject.Find("ScoreText").transform.GetComponent<ScoreText>().Score; ;
+        int CurrentScore = GameObject.Find("ScoreText").transform.GetComponent<ScoreText>().Score;
 
         gameObject.GetComponent<Text>().text = LastScoreText + CurrentScore;
     }

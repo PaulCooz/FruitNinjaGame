@@ -1,18 +1,16 @@
 using UnityEngine;
 
-public class Half : MonoBehaviour
+public class FlyingObject : MonoBehaviour
 {
-    public ConfigScript Config;
-    [System.NonSerialized]
     public float MinY;
-    [System.NonSerialized]
     public Vector2 Direction;
-    [System.NonSerialized]
     public float LifeTime;
 
-    void Update()
+    public ConfigScript Config;
+
+    private void Update()
     {
-        float DeltaTime = Time.deltaTime * Config.HalfSpeed;
+        float DeltaTime = Time.deltaTime * Config.TimeSpeed;
         Vector3 Move = new Vector3(Direction.x, Direction.y + Config.Gravity * LifeTime, 0);
 
         transform.Translate(Move * DeltaTime);
@@ -20,7 +18,12 @@ public class Half : MonoBehaviour
 
         if (transform.position.y < MinY)
         {
-            Destroy(gameObject);
+            RemoveObject();
         }
+    }
+
+    public virtual void RemoveObject()
+    {
+        Destroy(gameObject);
     }
 }

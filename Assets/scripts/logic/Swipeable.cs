@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OnSwipe : MonoBehaviour
+public class Swipeable : MonoBehaviour
 {
     private Vector2 PreviousPosition;
     private float PreviousTime;
@@ -52,11 +52,12 @@ public class OnSwipe : MonoBehaviour
     private void MakeHalf(GameObject Half, float RatioX)
     {
         GameObject FirstHalf = Instantiate(Half, transform.position, Quaternion.identity);
-        Fruit CurrentFruit = gameObject.GetComponent<Fruit>();
+        FruitLogic CurrentFruit = gameObject.GetComponent<FruitLogic>();
+        HalfLogic NewHalf = FirstHalf.GetComponent<HalfLogic>();
         Vector2 Direction = new Vector2(CurrentFruit.Direction.x * RatioX, 0);
 
-        FirstHalf.GetComponent<Half>().MinY = CurrentFruit.MinY;
-        FirstHalf.GetComponent<Half>().Direction = Direction;
-        FirstHalf.GetComponent<Half>().LifeTime = CurrentFruit.LifeTime;
+        NewHalf.SetDirection(Direction);
+        NewHalf.SetMinY(CurrentFruit.MinY);
+        NewHalf.SetLifeTime(CurrentFruit.LifeTime);
     }
 }

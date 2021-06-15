@@ -1,12 +1,8 @@
 using UnityEngine;
 
-public class Fruit : MonoBehaviour
+public class FruitLogic : FlyingObject
 {
-    public ConfigScript Config;
     public Health.HP HeartOnFall = Health.HP.Remove;
-    public Vector2 Direction;
-    public float MinY;
-    public float LifeTime;
 
     private void Start()
     {
@@ -16,27 +12,13 @@ public class Fruit : MonoBehaviour
         float Diameter = View.GetSpriteSize(gameObject).y;
 
         LifeTime = 0;
-        Direction = Mid - startPosition;
+        Direction = (Mid - startPosition).normalized * Config.Force;
         MinY = View.GetPosition(0, 0).y - Diameter;
 
         transform.position -= new Vector3(0, Diameter, 0);
     }
 
-    private void Update()
-    {
-        float DeltaTime = Time.deltaTime * Config.Speed;
-        Vector3 Move = new Vector3(Direction.x, Direction.y + Config.Gravity * LifeTime, 0);
-
-        transform.Translate(Move * DeltaTime);
-        LifeTime += DeltaTime;
-
-        if (transform.position.y < MinY)
-        {
-            RemoveFruit();
-        }
-    }
-
-    private void RemoveFruit()
+    public override void RemoveObject()
     {
         GameObject.Find("Hearts").transform.GetComponent<Health>().Check(HeartOnFall);
 

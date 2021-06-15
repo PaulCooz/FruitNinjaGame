@@ -37,21 +37,21 @@ MonoBehaviour:
     EndY: 0
     Chance: 4
   - StartX: 0
-    StartY: 0.4
+    StartY: 0.6
     EndX: 0
-    EndY: 0.6
+    EndY: 0.7
     Chance: 1
   - StartX: 1
-    StartY: 0.4
+    StartY: 0.6
     EndX: 1
-    EndY: 0.6
+    EndY: 0.7
     Chance: 1
   TimeBetweenPacks: 2
   TimeBetweenFruit: 0.2
   MaxPack: 5
   DeviationFromCenterByX: 0.1
-  Speed: 1
-  HalfSpeed: 2
+  Force: 330
+  TimeSpeed: 1.5
   DeviationHalfByX: 0.5
-  Gravity: -100
+  Gravity: -120
   MinSpeed: 500

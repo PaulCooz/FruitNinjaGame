@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5925448038759127800}
   - component: {fileID: 5925448038759127801}
-  - component: {fileID: 3639297075863284494}
+  - component: {fileID: 7215278167476261760}
   m_Layer: 3
   m_Name: HalfWatermelon0
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3639297075863284494
+--- !u!114 &7215278167476261760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5925448038759127802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e71eaeb74b40a5489e38d27704d3cff, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e07ac67ca6213649a6bd17ec18c4d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
-  Speed: 1
-  Bottom: {x: 0, y: 0}
+  MinY: 0
   Direction: {x: 0, y: 0}
   LifeTime: 0
+  Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}

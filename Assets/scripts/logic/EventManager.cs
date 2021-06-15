@@ -1,11 +1,11 @@
+using System;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
     public static bool isGameOver;
-    public delegate void Do();
-    public static event Do OnGameOverEvent;
-    public static event Do OnSartGameEvent;
+    public static event Action OnGameOverEvent;
+    public static event Action OnSartGameEvent;
 
     private void Awake()
     {
@@ -16,13 +16,13 @@ public class EventManager : MonoBehaviour
     {
         isGameOver = true;
 
-        OnGameOverEvent();
+        OnGameOverEvent?.Invoke();
     }
     
     public static void StartGame()
     {
         isGameOver = false;
 
-        OnSartGameEvent();
+        OnSartGameEvent?.Invoke();
     }
 }
