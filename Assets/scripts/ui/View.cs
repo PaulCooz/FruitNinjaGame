@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class View : MonoBehaviour
 {
-    public static Vector2 GetSpriteSize(GameObject Object)
+    public static Vector2 GetSpriteSize(Vector3 Scale, Sprite Image)
     {
-        Sprite Image = Object.GetComponent<SpriteRenderer>().sprite;
-        float ByX = Object.transform.localScale.x / Image.pixelsPerUnit * Image.textureRect.size.x;
-        float ByY = Object.transform.localScale.y / Image.pixelsPerUnit * Image.textureRect.size.y;
+        float ByX = Scale.x / Image.pixelsPerUnit * Image.textureRect.size.x;
+        float ByY = Scale.y / Image.pixelsPerUnit * Image.textureRect.size.y;
 
         return new Vector2(ByX, ByY);
     }

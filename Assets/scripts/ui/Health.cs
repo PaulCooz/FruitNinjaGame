@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
         Add, Remove, Nothing
     }
 
-    public ConfigScript Config;
+    public MainConfig Config;
     public Stack<GameObject> Hearts = new Stack<GameObject>();
 
     private void Start()
@@ -47,13 +47,15 @@ public class Health : MonoBehaviour
 
     public void Check(HP Heart)
     {
-        if (Heart == HP.Add)
+        switch(Heart)
         {
+        case HP.Add:
             AddHeart();
-        }
-        else if (Heart == HP.Remove)
-        {
+            break;
+
+        case HP.Remove:
             RemoveHeart();
+            break;
         }
     }
 

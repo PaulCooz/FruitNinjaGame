@@ -1,14 +1,16 @@
-using UnityEngine;
-using UnityEngine.UI;
-
-public class LastScore : MonoBehaviour
+public class LastScore : ScoreText
 {
-    private string LastScoreText = "your score: ";
+    private string TextView;
+
+    public CurrentScoreText CurrentScoreField;
+
+    private void Awake()
+    {
+        TextView = TextField.text;
+    }
 
     private void OnEnable()
     {
-        int CurrentScore = GameObject.Find("ScoreText").transform.GetComponent<ScoreText>().Score;
-
-        gameObject.GetComponent<Text>().text = LastScoreText + CurrentScore;
+        TextField.text = string.Format(TextView, CurrentScoreField.Score);
     }
 }

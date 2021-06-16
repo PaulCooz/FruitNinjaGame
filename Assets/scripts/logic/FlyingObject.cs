@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class FlyingObject : MonoBehaviour
 {
+    [System.NonSerialized]
     public float MinY;
+    [System.NonSerialized]
     public Vector2 Direction;
+    [System.NonSerialized]
     public float LifeTime;
 
-    public ConfigScript Config;
+    public MainConfig Config;
 
     private void Update()
     {

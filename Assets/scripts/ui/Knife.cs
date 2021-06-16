@@ -5,7 +5,7 @@ public class Knife : MonoBehaviour
     private bool Touching;
     private Vector2 PreviousDot;
 
-    public ConfigScript Config;    
+    public MainConfig Config;
 
     private void Start()
     {
@@ -39,8 +39,8 @@ public class Knife : MonoBehaviour
     {
         GameObject Line = Instantiate(Config.CutLine, StartDot, Quaternion.identity);
 
-        Line.GetComponent<LineRenderer>().SetPosition(0, StartDot);
-        Line.GetComponent<LineRenderer>().SetPosition(1, EndDot);
+        Line.SendMessage("SetFirstPosition", StartDot);
+        Line.SendMessage("SetSecondPosition", EndDot);
         Line.transform.SetParent(transform);
 
         Destroy(Line, Config.LifeTime);

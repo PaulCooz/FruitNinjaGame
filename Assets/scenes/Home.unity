@@ -825,7 +825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'best score: x'
+  m_Text: 'best score: {0}'
 --- !u!222 &1835878718
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -846,3 +846,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af7fd62c500cec459020eef92d98f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextField: {fileID: 1835878717}

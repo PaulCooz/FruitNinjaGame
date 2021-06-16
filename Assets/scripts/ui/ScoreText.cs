@@ -4,62 +4,19 @@ using UnityEngine.UI;
 public class ScoreText : MonoBehaviour
 {
     private readonly string BestScoreKey = "BestScore";
-    private string CurrentScoreText = "score: ";
-    private string BestScoreText = "<size=50>best: </size>";
-    private int CurrentScore;
-    private int BestScore;
 
-    private void Start()
-    {
-        EventManager.OnSartGameEvent += SetStartScore;
-        SetStartScore();
-    }
+    public Text TextField;
 
-    private void SetStartScore()
-    {
-        CurrentScore = 0;
-        BestScore = LoadScore();
-
-        Score = CurrentScore;
-    }
-
-    public int Score
-    {
-        get
-        {
-            return CurrentScore;
-        }
-        set
-        {
-            CurrentScore = value;
-            
-            if (BestScore < CurrentScore)
-            {
-                BestScore = CurrentScore;
-                SaveScore(BestScore);
-            }
-
-            GetComponent<Text>().text = CurrentScoreText + CurrentScore;
-            if (BestScore != CurrentScore)
-            {
-                GetComponent<Text>().text += "\n" + BestScoreText + BestScore;
-            }
-        }
-    }
-
-    private int LoadScore()
+    public int GetBestScore()
     {
         return PlayerPrefs.GetInt(BestScoreKey, 0);
     }
 
-    private void SaveScore(int CurrentBest)
+    public void SetBestScore(int NewBest)
     {
-        PlayerPrefs.SetInt(BestScoreKey, CurrentBest);
+        PlayerPrefs.SetInt(BestScoreKey, NewBest);
         PlayerPrefs.Save();
     }
 
-    private void OnDestroy()
-    {
-        EventManager.OnSartGameEvent -= SetStartScore;
-    }
+
 }

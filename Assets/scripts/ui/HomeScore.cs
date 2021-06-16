@@ -1,14 +1,14 @@
-using UnityEngine;
-using UnityEngine.UI;
-
-public class HomeScore : MonoBehaviour
+public class HomeScore : ScoreText
 {
-    private string HomeScoreText = "best score: ";
+    private string TextView;
+
+    private void Awake()
+    {
+        TextView = TextField.text;
+    }
 
     private void OnEnable()
     {
-        int CurrentScore = PlayerPrefs.GetInt("BestScore", 0);
-
-        gameObject.GetComponent<Text>().text = HomeScoreText + CurrentScore;
+        TextField.text = string.Format(TextView, GetBestScore());
     }
 }

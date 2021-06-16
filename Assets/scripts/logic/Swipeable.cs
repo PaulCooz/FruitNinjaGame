@@ -3,14 +3,9 @@ using UnityEngine;
 public class Swipeable : MonoBehaviour
 {
     private Vector2 PreviousPosition;
-    private float PreviousTime;
 
-    public ConfigScript Config;
-    public int PointsForCut;
-    public Health.HP HeartOnSwipe;
-    public bool HaveHalves;
-    public GameObject Half0;
-    public GameObject Half1;
+    public MainConfig Config;
+    public FruitConfig FruitParameters;
 
     private void Update()
     {
@@ -19,45 +14,18 @@ public class Swipeable : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Vector2 CurrentMousePosition = View.ToWorldPoint(Input.mousePosition);
-            float Speed = Vector2.Distance(CurrentMousePosition, PreviousPosition) / (Time.time - PreviousTime);
-            float Radius = View.GetSpriteSize(gameObject).x / 2;
+            float Speed = Vector2.Distance(CurrentMousePosition, PreviousPosition) / Time.deltaTime;
+            float Radius = View.GetSpriteSize(gameObject.transform.localScale, FruitParameters.FruitImage).x / 2;
 
             bool near = Vector2.Distance(transform.position, CurrentMousePosition) <= Radius;
             bool fast = Speed >= Config.MinSpeed;
 
             if (near && fast)
             {
-                CuttingFruit();
+                gameObject.SendMessage("Cutted");
             }
 
             PreviousPosition = CurrentMousePosition;
-            PreviousTime = Time.time;
         }
-    }
-
-    private void CuttingFruit()
-    {
-        GameObject.Find("ScoreText").transform.GetComponent<ScoreText>().Score += PointsForCut;
-        GameObject.Find("Hearts").transform.GetComponent<Health>().Check(HeartOnSwipe);
-
-        if (HaveHalves)
-        {
-            MakeHalf(Half0, Config.DeviationHalfByX);
-            MakeHalf(Half1, -Config.DeviationHalfByX);
-        }
-
-        Destroy(gameObject);
-    }
-
-    private void MakeHalf(GameObject Half, float RatioX)
-    {
-        GameObject FirstHalf = Instantiate(Half, transform.position, Quaternion.identity);
-        FruitLogic CurrentFruit = gameObject.GetComponent<FruitLogic>();
-        HalfLogic NewHalf = FirstHalf.GetComponent<HalfLogic>();
-        Vector2 Direction = new Vector2(CurrentFruit.Direction.x * RatioX, 0);
-
-        NewHalf.SetDirection(Direction);
-        NewHalf.SetMinY(CurrentFruit.MinY);
-        NewHalf.SetLifeTime(CurrentFruit.LifeTime);
     }
 }
