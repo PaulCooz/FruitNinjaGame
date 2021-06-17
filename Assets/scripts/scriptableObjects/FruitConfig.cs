@@ -10,8 +10,8 @@ public class FruitConfig : ScriptableObject
     [Header("\tCUT")]
     public int PointsForCut;
     public bool HaveHalves;
-    public GameObject Half0;
-    public GameObject Half1;
+    public HalfLogic Half0;
+    public HalfLogic Half1;
     public GameObject Particles;
 
     [Header("\tSPRITE")]

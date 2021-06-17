@@ -14,7 +14,7 @@ public class MainConfig : ScriptableObject
     public float LifeTime;
 
     [Header("\tPUSHER")]
-    public ListWithChances<GameObject> FruitToPush;
+    public ListWithChances<FruitLogic> FruitToPush;
     public ListWithChances<TwoDots> PushLine;
     public float TimeBetweenPacks;
     public float TimeBetweenFruit;
@@ -24,6 +24,7 @@ public class MainConfig : ScriptableObject
     [Range(0, 1)]
     public float DeviationFromCenterByX = 0.1f;
     public float Force = 200;
+    public float BombMultiplier = 0.5f;
     public float TimeSpeed = 3;
     public float DeviationHalfByX = 0.5f;
     public float Gravity = -100.0f;

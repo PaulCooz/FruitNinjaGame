@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   FruitParameters: {fileID: 11400000, guid: df916ed1d87e4e44387650347de9e584, type: 2}
+  CurrentFruit: {fileID: 2579746846486541024}

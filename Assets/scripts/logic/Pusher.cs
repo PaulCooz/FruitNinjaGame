@@ -7,7 +7,7 @@ public class Pusher : MonoBehaviour
 
     public MainConfig Config;
     public Health HealthManager;
-    public ScoreText TextUpdater;
+    public CurrentScoreText TextUpdater;
 
     private void Start()
     {
@@ -39,14 +39,13 @@ public class Pusher : MonoBehaviour
 
     private void PushNewFruit()
     {
-        GameObject NewFruit = Instantiate(RandomFruit(), RandomStartPosition(), Quaternion.identity);
+        FruitLogic NewFruit = Instantiate(RandomFruit(), RandomStartPosition(), Quaternion.identity);
 
         NewFruit.transform.SetParent(transform);
-        NewFruit.SendMessage("SetHealthManager", HealthManager);
-        NewFruit.SendMessage("SetTextUpdater", TextUpdater);
+        NewFruit.Init(HealthManager, TextUpdater);
     }
 
-    private GameObject RandomFruit()
+    private FruitLogic RandomFruit()
     { 
         return Config.FruitToPush.GetRandomData();
     }
@@ -54,7 +53,6 @@ public class Pusher : MonoBehaviour
     private Vector2 RandomStartPosition()
     {
         var RandomLine = Config.PushLine.GetRandomData();
-
         Vector2 PushLineStart = View.GetPosition(RandomLine.StartX, RandomLine.StartY);
         Vector2 PushLineEnd = View.GetPosition(RandomLine.EndX, RandomLine.EndY);
         float Ratio = Random.Range(0.0f, 1.0f);

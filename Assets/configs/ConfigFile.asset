@@ -19,17 +19,17 @@ MonoBehaviour:
   LifeTime: 0.1
   FruitToPush:
     ArrayOfObjects:
-    - Object: {fileID: 5857924569775099134, guid: c653212a350975544802a8f6f0275cb8, type: 3}
+    - Object: {fileID: 8287205632535211314, guid: c653212a350975544802a8f6f0275cb8, type: 3}
       Chance: 4
-    - Object: {fileID: 5021797558045931270, guid: cb1beac36ef39e248a7316f421709342, type: 3}
+    - Object: {fileID: 1879262115747715763, guid: cb1beac36ef39e248a7316f421709342, type: 3}
       Chance: 4
-    - Object: {fileID: 753319220453710737, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
+    - Object: {fileID: 7018042714327379064, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
       Chance: 4
-    - Object: {fileID: 371929758881984159, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
+    - Object: {fileID: 2579746846486541024, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
       Chance: 4
-    - Object: {fileID: 1867124119354517182, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
+    - Object: {fileID: -8166786568634253908, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
       Chance: 3
-    - Object: {fileID: 8921525937869620910, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
+    - Object: {fileID: 1960360663060375246, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
       Chance: 1
   PushLine:
     ArrayOfObjects:

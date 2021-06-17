@@ -2,25 +2,24 @@ using UnityEngine;
 
 public class FruitLogic : FlyingObject
 {
-    private Health HealthManager;
+    [System.NonSerialized]
+    public Health HealthManager;
     private CurrentScoreText TextUpdater;
+    private const float MidX = 0.5f;
+    private const float MidY = 0.6f;
 
     public FruitConfig FruitParameters;
 
-    public void SetHealthManager(Health HealthManager)
+    public void Init(Health HealthManager, CurrentScoreText TextUpdater)
     {
         this.HealthManager = HealthManager;
-    }
-    
-    public void SetTextUpdater(CurrentScoreText TextUpdater)
-    {
         this.TextUpdater = TextUpdater;
     }
 
     private void Start()
     {
         float DeviationByX = Random.Range(-Config.DeviationFromCenterByX, Config.DeviationFromCenterByX);
-        Vector2 Mid = View.GetPosition(0.5f + DeviationByX, 0.6f);
+        Vector2 Mid = View.GetPosition(MidX + DeviationByX, MidY);
         Vector2 startPosition = new Vector2(transform.position.x, transform.position.y);
         float Diameter = View.GetSpriteSize(gameObject.transform.localScale, FruitParameters.FruitImage).y;
 
@@ -54,13 +53,10 @@ public class FruitLogic : FlyingObject
         Destroy(gameObject);
     }
 
-    private void MakeHalf(GameObject Half, float RatioX)
+    private void MakeHalf(HalfLogic Half, float RatioX)
     {
-        GameObject NewHalf = Instantiate(Half, transform.position, Quaternion.identity);
-        Vector2 Direction = new Vector2(this.Direction.x * RatioX, 0);
+        HalfLogic NewHalf = Instantiate(Half, transform.position, Quaternion.identity);
 
-        NewHalf.SendMessage("SetDirection", Direction);
-        NewHalf.SendMessage("SetMinY", this.MinY);
-        NewHalf.SendMessage("SetLifeTime", this.LifeTime);
+        NewHalf.Init(this.MinY, new Vector2(this.Direction.x * RatioX, 0), this.LifeTime);
     }
 }

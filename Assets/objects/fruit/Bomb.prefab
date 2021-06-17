@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1286100563765302188}
   - component: {fileID: 4848274997295530989}
-  - component: {fileID: 7176949142134320788}
+  - component: {fileID: -8166786568634253908}
   - component: {fileID: 4357525582788041767}
   m_Layer: 3
   m_Name: Bomb
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7176949142134320788
+--- !u!114 &-8166786568634253908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1867124119354517182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02ba1a7be61f024e996b2bcb72fc0d1, type: 3}
+  m_Script: {fileID: 11500000, guid: b8da831416cfbdf489627d4de07ac553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   FruitParameters: {fileID: 11400000, guid: 69e62f1a8540ec04c92e69068f080f66, type: 2}
+  CurrentFruit: {fileID: -8166786568634253908}
