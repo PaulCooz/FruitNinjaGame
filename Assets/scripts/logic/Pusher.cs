@@ -53,7 +53,7 @@ public class Pusher : MonoBehaviour
 
     private Vector2 RandomStartPosition()
     {
-        MainConfig.TwoDots RandomLine = Config.PushLine.GetRandomData();
+        var RandomLine = Config.PushLine.GetRandomData();
 
         Vector2 PushLineStart = View.GetPosition(RandomLine.StartX, RandomLine.StartY);
         Vector2 PushLineEnd = View.GetPosition(RandomLine.EndX, RandomLine.EndY);

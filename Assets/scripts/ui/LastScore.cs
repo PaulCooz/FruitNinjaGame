@@ -7,9 +7,10 @@ public class LastScore : ScoreText
     private void Awake()
     {
         TextView = TextField.text;
+        EventManager.OnGameOverEvent += UpdateText;
     }
 
-    private void OnEnable()
+    public void UpdateText()
     {
         TextField.text = string.Format(TextView, CurrentScoreField.Score);
     }

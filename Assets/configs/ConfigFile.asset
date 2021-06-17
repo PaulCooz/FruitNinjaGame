@@ -18,29 +18,39 @@ MonoBehaviour:
   CutLine: {fileID: 6541802807178343406, guid: f25288978f816b0428e0840d0a7c3185, type: 3}
   LifeTime: 0.1
   FruitToPush:
-    Data:
-    - {fileID: 5857924569775099134, guid: c653212a350975544802a8f6f0275cb8, type: 3}
-    - {fileID: 5021797558045931270, guid: cb1beac36ef39e248a7316f421709342, type: 3}
-    - {fileID: 753319220453710737, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
-    - {fileID: 371929758881984159, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
-    - {fileID: 1867124119354517182, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
-    - {fileID: 8921525937869620910, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
-    Chances: 040004000400040002000100
+    ArrayOfObjects:
+    - Object: {fileID: 5857924569775099134, guid: c653212a350975544802a8f6f0275cb8, type: 3}
+      Chance: 4
+    - Object: {fileID: 5021797558045931270, guid: cb1beac36ef39e248a7316f421709342, type: 3}
+      Chance: 4
+    - Object: {fileID: 753319220453710737, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
+      Chance: 4
+    - Object: {fileID: 371929758881984159, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
+      Chance: 4
+    - Object: {fileID: 1867124119354517182, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
+      Chance: 3
+    - Object: {fileID: 8921525937869620910, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
+      Chance: 1
   PushLine:
-    Data:
-    - StartX: 0.3
-      StartY: 0
-      EndX: 0.7
-      EndY: 0
-    - StartX: 0
-      StartY: 0.5
-      EndX: 0
-      EndY: 0.7
-    - StartX: 1
-      StartY: 0.5
-      EndX: 1
-      EndY: 0.7
-    Chances: 030001000100
+    ArrayOfObjects:
+    - Object:
+        StartX: 0.3
+        StartY: 0
+        EndX: 0.7
+        EndY: 0
+      Chance: 8
+    - Object:
+        StartX: 0
+        StartY: 0.5
+        EndX: 0
+        EndY: 0.7
+      Chance: 1
+    - Object:
+        StartX: 1
+        StartY: 0.5
+        EndX: 1
+        EndY: 0.7
+      Chance: 1
   TimeBetweenPacks: 2
   TimeBetweenFruit: 0.2
   MaxPack: 5

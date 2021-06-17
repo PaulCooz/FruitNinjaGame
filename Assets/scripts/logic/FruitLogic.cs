@@ -40,6 +40,8 @@ public class FruitLogic : FlyingObject
 
     public void Cutted()
     {
+        Instantiate(FruitParameters.Particles, transform.position, Quaternion.identity);
+
         TextUpdater.Score += FruitParameters.PointsForCut;
         HealthManager.Check(FruitParameters.HeartOnSwipe);
 

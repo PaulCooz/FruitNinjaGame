@@ -12,7 +12,9 @@ public class FruitConfig : ScriptableObject
     public bool HaveHalves;
     public GameObject Half0;
     public GameObject Half1;
+    public GameObject Particles;
 
     [Header("\tSPRITE")]
     public Sprite FruitImage;
+
 }

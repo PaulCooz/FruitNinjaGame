@@ -3,58 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Main config file", menuName = "Make main config")]
 public class MainConfig : ScriptableObject
 {
-    [System.Serializable]
-    public class ListWithChances<T>
-    {
-        [SerializeField]
-        public T[] Data;
-        [SerializeField]
-        public ushort[] Chances;
-
-        public T GetRandomData()
-        {
-            int SumOfChances = 0;
-            for (int i = 0; i < Chances.Length; i++)
-            {
-                SumOfChances += Chances[i];
-            }
-
-            int CurrentChance = Random.Range(1, SumOfChances + 1);
-            int RandomIndex = 0;
-            for (int i = 0; i < Chances.Length; i++)
-            {
-                CurrentChance -= Chances[i];
-
-                if (CurrentChance <= 0)
-                {
-                    RandomIndex = i;
-                    break;
-                }
-            }
-
-            return Data[RandomIndex];
-        }
-
-        public ListWithChances(T[] Data, ushort[] Chances)
-        {
-            this.Data = Data;
-            this.Chances = Chances;
-        }
-    }
-
-    [System.Serializable]
-    public struct TwoDots
-    {
-        [Range(0, 1)]
-        public float StartX;
-        [Range(0, 1)]
-        public float StartY;
-        [Range(0, 1)]
-        public float EndX;
-        [Range(0, 1)]
-        public float EndY;
-    }
-
     [Header("\tHEARTS")]
     public GameObject HeartPref;
     public int MaxHP = 5;
@@ -83,4 +31,58 @@ public class MainConfig : ScriptableObject
     [Header("\tSWIPE")]
     [Range(0, 10000)]
     public float MinSpeed = 500;
+}
+
+
+[System.Serializable]
+public struct TwoDots
+{
+    [Range(0, 1)]
+    public float StartX;
+    [Range(0, 1)]
+    public float StartY;
+    [Range(0, 1)]
+    public float EndX;
+    [Range(0, 1)]
+    public float EndY;
+}
+
+[System.Serializable]
+public struct ObjectAndChance<T>
+{
+    [SerializeField]
+    public T Object;
+    [SerializeField]
+    public ushort Chance;
+}
+
+[System.Serializable]
+public class ListWithChances<T>
+{
+    [SerializeField]
+    ObjectAndChance<T>[] ArrayOfObjects;
+
+    public T GetRandomData()
+    {
+        int SumOfChances = 0;
+        for (int i = 0; i < ArrayOfObjects.Length; i++)
+        {
+            SumOfChances += ArrayOfObjects[i].Chance;
+        }
+
+        int CurrentChance = Random.Range(1, SumOfChances + 1);
+        int RandomIndex = 0;
+        for (int i = 0; i < ArrayOfObjects.Length; i++)
+        {
+            CurrentChance -= ArrayOfObjects[i].Chance;
+
+            if (CurrentChance <= 0)
+            {
+                RandomIndex = i;
+                break;
+            }
+        }
+
+        return ArrayOfObjects[RandomIndex].Object;
+    }
 }
