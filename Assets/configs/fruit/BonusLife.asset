@@ -18,5 +18,5 @@ MonoBehaviour:
   HaveHalves: 0
   Half0: {fileID: 0}
   Half1: {fileID: 0}
-  Particles: {fileID: 2983029453124979375, guid: d8f00e97f1290464dbb1228f255072ab, type: 3}
+  Particles: {fileID: 3463290464167429904, guid: ff21bfd21a7863248bb59bcf3e2b76bc, type: 3}
   FruitImage: {fileID: 21300000, guid: 35bafcdb322df2d43a978316d310eca4, type: 3}

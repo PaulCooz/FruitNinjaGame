@@ -18,7 +18,7 @@ public class Animatable : MonoBehaviour
         }
         if (ReverseWithChance(50))
         {
-            ScaleSpeed = 1 / ScaleSpeed;
+            ScaleSpeed = -ScaleSpeed;
         }
     }
 

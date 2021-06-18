@@ -2,40 +2,9 @@ using UnityEngine;
 
 public class Pusher : MonoBehaviour
 {
-    private float TimeToNextPush;
-    private int CurrentQuantity;
-
     public MainConfig Config;
 
-    private void Start()
-    {
-        TimeToNextPush = 1;
-        CurrentQuantity = 1;
-    }
-
-    private void Update()
-    {
-        if (EventManager.isGameOver) return;
-
-        if (TimeToNextPush <= 0)
-        {
-            if (CurrentQuantity > 0)
-            {
-                TimeToNextPush = Config.TimeBetweenFruit;
-                CurrentQuantity--;
-
-                PushNewFruit();
-            }
-            else
-            {
-                TimeToNextPush = Config.TimeBetweenPacks;
-                CurrentQuantity = Random.Range(2, Config.MaxPack + 1);
-            }
-        }
-        TimeToNextPush -= Time.deltaTime;
-    }
-
-    private void PushNewFruit()
+    public void PushNewFruit(Transform transform)
     {
         FruitLogic NewFruit = Instantiate(RandomFruit(), RandomStartPosition(), Quaternion.identity);
         NewFruit.transform.SetParent(transform);
