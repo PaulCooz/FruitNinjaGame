@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8146660710991335395}
   - component: {fileID: 7018042714327379064}
   - component: {fileID: 6453569996011706749}
+  - component: {fileID: -4368769105810292901}
   m_Layer: 3
   m_Name: Orange
   m_TagString: Untagged
@@ -112,4 +113,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   FruitParameters: {fileID: 11400000, guid: f89104c796484f649ad0641e0aea40c1, type: 2}
-  CurrentFruit: {fileID: 7018042714327379064}
+--- !u!114 &-4368769105810292901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753319220453710737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838743bb7c19404f975dfb73d8ffc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotateAngle: 0

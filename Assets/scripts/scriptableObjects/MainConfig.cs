@@ -14,8 +14,8 @@ public class MainConfig : ScriptableObject
     public float LifeTime;
 
     [Header("\tPUSHER")]
-    public ListWithChances<FruitLogic> FruitToPush;
-    public ListWithChances<TwoDots> PushLine;
+    public ObjectAndChance<FruitLogic>[] FruitToPush;
+    public ObjectAndChance<TwoDots>[] PushLine;
     public float TimeBetweenPacks;
     public float TimeBetweenFruit;
     public int MaxPack;
@@ -58,32 +58,30 @@ public struct ObjectAndChance<T>
 }
 
 [System.Serializable]
-public class ListWithChances<T>
+public static class ExtensionMethods
 {
-    [SerializeField]
-    ObjectAndChance<T>[] ArrayOfObjects;
-
-    public T GetRandomData()
+    public static T GetRandomData<T>(this ObjectAndChance<T>[] ArrayOfObjects)
     {
+        T Result = ArrayOfObjects[0].Object;
+
         int SumOfChances = 0;
-        for (int i = 0; i < ArrayOfObjects.Length; i++)
+        foreach(var Element in ArrayOfObjects)
         {
-            SumOfChances += ArrayOfObjects[i].Chance;
+            SumOfChances += Element.Chance;
         }
 
         int CurrentChance = Random.Range(1, SumOfChances + 1);
-        int RandomIndex = 0;
-        for (int i = 0; i < ArrayOfObjects.Length; i++)
+        foreach(var Element in ArrayOfObjects)
         {
-            CurrentChance -= ArrayOfObjects[i].Chance;
+            CurrentChance -= Element.Chance;
 
             if (CurrentChance <= 0)
             {
-                RandomIndex = i;
+                Result = Element.Object;
                 break;
             }
         }
 
-        return ArrayOfObjects[RandomIndex].Object;
+        return Result;
     }
 }

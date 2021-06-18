@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2206551738920043407}
   - component: {fileID: 1879262115747715763}
   - component: {fileID: 2890211219201052553}
+  - component: {fileID: -7092782463822968109}
   m_Layer: 3
   m_Name: Lime
   m_TagString: Untagged
@@ -112,4 +113,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   FruitParameters: {fileID: 11400000, guid: e7b35e85ff56100489e77359e6630b00, type: 2}
-  CurrentFruit: {fileID: 1879262115747715763}
+--- !u!114 &-7092782463822968109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5021797558045931270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838743bb7c19404f975dfb73d8ffc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotateAngle: 0

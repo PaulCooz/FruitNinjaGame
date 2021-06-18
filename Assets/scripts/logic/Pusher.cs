@@ -46,7 +46,7 @@ public class Pusher : MonoBehaviour
     }
 
     private FruitLogic RandomFruit()
-    { 
+    {
         return Config.FruitToPush.GetRandomData();
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8335531303905291961}
   - component: {fileID: 8287205632535211314}
   - component: {fileID: 2187814221222838693}
+  - component: {fileID: 1623226189292935995}
   m_Layer: 3
   m_Name: Apple
   m_TagString: Untagged
@@ -112,4 +113,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   FruitParameters: {fileID: 11400000, guid: ffe53db69d9e0144e98981e83661b13b, type: 2}
-  CurrentFruit: {fileID: 8287205632535211314}
+--- !u!114 &1623226189292935995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857924569775099134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838743bb7c19404f975dfb73d8ffc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotateAngle: 0

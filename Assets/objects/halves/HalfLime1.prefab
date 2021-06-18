@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 29274941710762938}
   - component: {fileID: 29274941710762939}
   - component: {fileID: -6964838400650148741}
+  - component: {fileID: -8271996857316434959}
   m_Layer: 3
   m_Name: HalfLime1
   m_TagString: Untagged
@@ -95,7 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e07ac67ca6213649a6bd17ec18c4d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinY: 0
-  Direction: {x: 0, y: 0}
-  LifeTime: 0
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
+--- !u!114 &-8271996857316434959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29274941710762936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b838743bb7c19404f975dfb73d8ffc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
