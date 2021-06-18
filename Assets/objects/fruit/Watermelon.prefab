@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b838743bb7c19404f975dfb73d8ffc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateAngle: 0
+  Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}

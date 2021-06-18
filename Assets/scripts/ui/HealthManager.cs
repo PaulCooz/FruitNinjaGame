@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class HealthManager : MonoBehaviour
 {
     public enum HP
     {
@@ -9,11 +9,16 @@ public class Health : MonoBehaviour
     }
 
     public MainConfig Config;
-    public Stack<GameObject> Hearts = new Stack<GameObject>();
+    public Stack<HeartViewer> Hearts = new Stack<HeartViewer>();
 
-    private void Start()
+    private void Awake()
     {
         EventManager.OnSartGameEvent += AddHearts;
+        EventManager.OnHealthChange += Check;
+    }
+
+    private void OnEnable()
+    {
         AddHearts();
     }
 
@@ -36,7 +41,7 @@ public class Health : MonoBehaviour
     {
         if (Hearts.Count > 0)
         {
-            Destroy(Hearts.Pop());
+            Hearts.Pop().PopHeart();
         }
 
         if (Hearts.Count <= 0)
@@ -62,5 +67,6 @@ public class Health : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.OnSartGameEvent -= AddHearts;
+        EventManager.OnHealthChange -= Check;
     }
 }

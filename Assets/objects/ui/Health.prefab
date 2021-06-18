@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8910239142554601938}
   - component: {fileID: 2568760210237348340}
   - component: {fileID: 7169897604567167833}
+  - component: {fileID: -5577141376638863269}
+  - component: {fileID: -4332198599548718310}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -75,3 +77,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &-5577141376638863269
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121965580859795322}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 051d40e26d6da8f449e0d96876f2e04b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4332198599548718310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121965580859795322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bec75e8e74e594f85f94c2f4102323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeartAnimator: {fileID: -5577141376638863269}

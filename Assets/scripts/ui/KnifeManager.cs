@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Knife : MonoBehaviour
+public class KnifeManager : MonoBehaviour
 {
     private bool Touching;
     private Vector2 PreviousDot;
@@ -37,12 +37,11 @@ public class Knife : MonoBehaviour
 
     private void MakeNewLine(Vector2 StartDot, Vector2 EndDot)
     {
-        GameObject Line = Instantiate(Config.CutLine, StartDot, Quaternion.identity);
+        CutLineLogic Line = Instantiate(Config.CutLine, StartDot, Quaternion.identity);
 
-        Line.SendMessage("SetFirstPosition", StartDot);
-        Line.SendMessage("SetSecondPosition", EndDot);
+        Line.Init(StartDot, EndDot);
         Line.transform.SetParent(transform);
 
-        Destroy(Line, Config.LifeTime);
+        Destroy(Line.gameObject, Config.LifeTime);
     }
 }

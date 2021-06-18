@@ -2,24 +2,12 @@ using UnityEngine;
 
 public class FruitLogic : FlyingObject
 {
-    [System.NonSerialized]
-    public Health HealthManager;
-    private CurrentScoreText TextUpdater;
-    private const float MidX = 0.5f;
-    private const float MidY = 0.6f;
-
     public FruitConfig FruitParameters;
-
-    public void Init(Health HealthManager, CurrentScoreText TextUpdater)
-    {
-        this.HealthManager = HealthManager;
-        this.TextUpdater = TextUpdater;
-    }
 
     private void Start()
     {
         float DeviationByX = Random.Range(-Config.DeviationFromCenterByX, Config.DeviationFromCenterByX);
-        Vector2 Mid = View.GetPosition(MidX + DeviationByX, MidY);
+        Vector2 Mid = View.GetPosition(Config.MidX + DeviationByX, Config.MidY);
         Vector2 startPosition = new Vector2(transform.position.x, transform.position.y);
         float Diameter = View.GetSpriteSize(gameObject.transform.localScale, FruitParameters.FruitImage).y;
 
@@ -32,7 +20,7 @@ public class FruitLogic : FlyingObject
 
     public override void RemoveObject()
     {
-        HealthManager.Check(FruitParameters.HeartOnFall);
+        EventManager.HealthChange(FruitParameters.HeartOnFall);
 
         Destroy(gameObject);
     }
@@ -41,8 +29,8 @@ public class FruitLogic : FlyingObject
     {
         Instantiate(FruitParameters.Particles, transform.position, Quaternion.identity);
 
-        TextUpdater.Score += FruitParameters.PointsForCut;
-        HealthManager.Check(FruitParameters.HeartOnSwipe);
+        EventManager.ScoreChange(FruitParameters.PointsForCut);
+        EventManager.HealthChange(FruitParameters.HeartOnSwipe);
 
         if (FruitParameters.HaveHalves)
         {
@@ -56,7 +44,6 @@ public class FruitLogic : FlyingObject
     private void MakeHalf(HalfLogic Half, float RatioX)
     {
         HalfLogic NewHalf = Instantiate(Half, transform.position, Quaternion.identity);
-
         NewHalf.Init(this.MinY, new Vector2(this.Direction.x * RatioX, 0), this.LifeTime);
     }
 }

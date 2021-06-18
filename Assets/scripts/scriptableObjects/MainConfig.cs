@@ -3,13 +3,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Main config file", menuName = "Make main config")]
 public class MainConfig : ScriptableObject
 {
+    [Header("\tANIMATIONS")]
+    public float RotateSpeed;
+    public float ScaleSpeed;
+
     [Header("\tHEARTS")]
-    public GameObject HeartPref;
+    public HeartViewer HeartPref;
     public int MaxHP = 5;
     public int StartHP = 3;
 
     [Header("\tKNIFE")]
-    public GameObject CutLine;
+    public CutLineLogic CutLine;
     [Range(0, 10)]
     public float LifeTime;
 
@@ -19,6 +23,10 @@ public class MainConfig : ScriptableObject
     public float TimeBetweenPacks;
     public float TimeBetweenFruit;
     public int MaxPack;
+    [Range(0, 1)]
+    public float MidX = 0.5f;
+    [Range(0, 1)]
+    public float MidY = 0.6f;
 
     [Header("\tFRUIT")]
     [Range(0, 1)]
@@ -26,6 +34,7 @@ public class MainConfig : ScriptableObject
     public float Force = 200;
     public float BombMultiplier = 0.5f;
     public float TimeSpeed = 3;
+    public float TimeSpeedIncrease = 10;
     public float DeviationHalfByX = 0.5f;
     public float Gravity = -100.0f;
 

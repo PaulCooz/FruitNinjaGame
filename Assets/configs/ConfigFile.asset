@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b46c9f3c90e4e4a9fe7ce13913c4da, type: 3}
   m_Name: ConfigFile
   m_EditorClassIdentifier: 
-  HeartPref: {fileID: 2121965580859795322, guid: 9ae2f41a081408f4292a29804ea12069, type: 3}
+  RotateSpeed: 40
+  ScaleSpeed: 1
+  HeartPref: {fileID: -4332198599548718310, guid: 9ae2f41a081408f4292a29804ea12069, type: 3}
   MaxHP: 4
   StartHP: 3
-  CutLine: {fileID: 6541802807178343406, guid: f25288978f816b0428e0840d0a7c3185, type: 3}
+  CutLine: {fileID: 2858421845988467349, guid: f25288978f816b0428e0840d0a7c3185, type: 3}
   LifeTime: 0.1
   FruitToPush:
   - Object: {fileID: 8287205632535211314, guid: c653212a350975544802a8f6f0275cb8, type: 3}
@@ -52,10 +54,13 @@ MonoBehaviour:
   TimeBetweenPacks: 2
   TimeBetweenFruit: 0.2
   MaxPack: 5
+  MidX: 0.5
+  MidY: 0.7
   DeviationFromCenterByX: 0.1
   Force: 330
-  BombMultiplier: 0.4
+  BombMultiplier: 100
   TimeSpeed: 1
+  TimeSpeedIncrease: 3
   DeviationHalfByX: 0.5
   Gravity: -120
   MinSpeed: 1000

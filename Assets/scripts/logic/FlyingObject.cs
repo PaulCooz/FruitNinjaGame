@@ -11,7 +11,7 @@ public class FlyingObject : MonoBehaviour
 
     public MainConfig Config;
 
-    private void OnEnable()
+    private void Awake()
     {
         EventManager.OnBombExplosionEvent += BombExplosion;
     }
@@ -19,9 +19,11 @@ public class FlyingObject : MonoBehaviour
     private void Update()
     {
         float DeltaTime = Time.deltaTime * Config.TimeSpeed;
+        if (EventManager.isGameOver) DeltaTime *= Config.TimeSpeedIncrease;
+
         Vector3 Move = new Vector3(Direction.x, Direction.y + Config.Gravity * LifeTime, 0);
 
-        transform.Translate(Move * DeltaTime);
+        transform.Translate(Move * DeltaTime, Space.World);
         LifeTime += DeltaTime;
 
         if (transform.position.y < MinY)
@@ -38,10 +40,12 @@ public class FlyingObject : MonoBehaviour
     public void BombExplosion(Vector2 BombPosition)
     {
         Vector2 CurrentPosition = new Vector2(transform.position.x, transform.position.y);
-        Vector2 Impulse = (CurrentPosition - BombPosition).normalized * Config.Force * Config.BombMultiplier;
+        if (CurrentPosition == BombPosition) return;
 
-        Direction += Impulse;
+        Vector2 Difference = CurrentPosition - BombPosition;
+        Vector2 Impulse = Difference / Difference.sqrMagnitude * Config.Force;
 
+        Direction += Impulse * Config.BombMultiplier;
     }
 
     private void OnDestroy()

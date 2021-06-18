@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4229816101449935134}
   - component: {fileID: 745783556029366909}
   m_Layer: 0
-  m_Name: Particles
+  m_Name: ParticlesFruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

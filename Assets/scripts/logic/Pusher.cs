@@ -6,8 +6,6 @@ public class Pusher : MonoBehaviour
     private int CurrentQuantity;
 
     public MainConfig Config;
-    public Health HealthManager;
-    public CurrentScoreText TextUpdater;
 
     private void Start()
     {
@@ -40,9 +38,7 @@ public class Pusher : MonoBehaviour
     private void PushNewFruit()
     {
         FruitLogic NewFruit = Instantiate(RandomFruit(), RandomStartPosition(), Quaternion.identity);
-
         NewFruit.transform.SetParent(transform);
-        NewFruit.Init(HealthManager, TextUpdater);
     }
 
     private FruitLogic RandomFruit()

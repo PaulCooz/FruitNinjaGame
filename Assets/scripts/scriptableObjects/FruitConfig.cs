@@ -4,8 +4,8 @@ using UnityEngine;
 public class FruitConfig : ScriptableObject
 {
     [Header("\tHEARTS")]
-    public Health.HP HeartOnFall;
-    public Health.HP HeartOnSwipe;
+    public HealthManager.HP HeartOnFall;
+    public HealthManager.HP HeartOnSwipe;
 
     [Header("\tCUT")]
     public int PointsForCut;

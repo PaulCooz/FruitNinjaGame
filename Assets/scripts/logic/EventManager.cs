@@ -7,8 +7,10 @@ public class EventManager : MonoBehaviour
     public static event Action OnGameOverEvent;
     public static event Action OnSartGameEvent;
     public static event Action<Vector2> OnBombExplosionEvent;
+    public static event Action<HealthManager.HP> OnHealthChange;
+    public static event Action<int> OnScoreChange;
 
-    private void Start()
+    private void OnEnable()
     {
         isGameOver = false;
     }
@@ -18,17 +20,27 @@ public class EventManager : MonoBehaviour
         OnBombExplosionEvent?.Invoke(Position);
     }
 
+    public static void HealthChange(HealthManager.HP Change)
+    {
+        OnHealthChange?.Invoke(Change);
+    }
+
+    public static void ScoreChange(int Change)
+    {
+        OnScoreChange?.Invoke(Change);
+    }
+
     public static void GameOver()
     {
-        isGameOver = true;
+        if (isGameOver) return;
 
+        isGameOver = true;
         OnGameOverEvent?.Invoke();
     }
     
     public static void StartGame()
     {
         isGameOver = false;
-
         OnSartGameEvent?.Invoke();
     }
 }

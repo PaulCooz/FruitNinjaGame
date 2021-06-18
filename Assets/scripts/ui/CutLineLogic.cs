@@ -4,13 +4,9 @@ public class CutLineLogic : MonoBehaviour
 {
     public LineRenderer LineRendererField;
 
-    public void SetFirstPosition(Vector2 Dot)
+    public void Init(Vector2 FirstPosition, Vector2 SecondPosition)
     {
-        LineRendererField.SetPosition(0, Dot);
-    }
-    
-    public void SetSecondPosition(Vector2 Dot)
-    {
-        LineRendererField.SetPosition(1, Dot);
+        LineRendererField.SetPosition(0, FirstPosition);
+        LineRendererField.SetPosition(1, SecondPosition);
     }
 }

@@ -1,20 +1,20 @@
 using UnityEngine;
 
-public class Popup : MonoBehaviour
+public class PopupManager : MonoBehaviour
 {
     private bool isEnableNow;
 
     public Animator AnimatorController;
 
     private void Awake()
-    {
-        EventManager.OnGameOverEvent += Show;
+    {   
         EventManager.OnSartGameEvent += Hide;
+        EventManager.OnGameOverEvent += Show;
     }
 
     private void Start()
     {
-        AnimatorController.SetTrigger("FastHide");
+        DisableObject();
         isEnableNow = false;
     }
 
