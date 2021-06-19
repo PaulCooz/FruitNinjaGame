@@ -17,4 +17,6 @@ public class FruitConfig : ScriptableObject
     [Header("\tSPRITE")]
     public Sprite FruitImage;
 
+    [Header("\tPUSHER")]
+    public int MaxInPack = 4;
 }

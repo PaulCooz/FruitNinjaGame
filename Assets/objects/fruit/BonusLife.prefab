@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8921525937869620908}
   - component: {fileID: 8921525937869620909}
-  - component: {fileID: 1960360663060375246}
+  - component: {fileID: 8839778088805168291}
   - component: {fileID: 406223463210118986}
   - component: {fileID: 4412947896890912481}
   m_Layer: 3
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1960360663060375246
+--- !u!114 &8839778088805168291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02ba1a7be61f024e996b2bcb72fc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 1.5
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   FruitParameters: {fileID: 11400000, guid: ee32c03511971d246a54d3baaf6f170d, type: 2}
 --- !u!114 &406223463210118986

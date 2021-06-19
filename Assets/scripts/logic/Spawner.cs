@@ -4,6 +4,7 @@ public class Spawner : MonoBehaviour
 {
     private float TimeToNextPush;
     private int CurrentQuantity;
+    private int QuantityOfPacks;
 
     public MainConfig Config;
     public Pusher Gun;
@@ -20,8 +21,9 @@ public class Spawner : MonoBehaviour
 
     public void SetStartData()
     {
-        TimeToNextPush = 1;
+        TimeToNextPush = 2;
         CurrentQuantity = 1;
+        QuantityOfPacks = 0;
     }
 
     private void Update()
@@ -30,24 +32,17 @@ public class Spawner : MonoBehaviour
 
         if (TimeToNextPush <= 0)
         {
-            if (CurrentQuantity > 0)
-            {
-                TimeToNextPush = Config.TimeBetweenFruit;
-                CurrentQuantity--;
+            Gun.PushNewPack(transform, CurrentQuantity);
 
-                Gun.PushNewFruit(transform);
-            }
-            else
-            {
-                TimeToNextPush = Config.TimeBetweenPacks;
-                CurrentQuantity = Random.Range(2, Config.MaxPack + 1);
-            }
+            QuantityOfPacks++;
+            TimeToNextPush = Config.TimeBetweenPacks;
+            CurrentQuantity = Random.Range(2, Mathf.Min(QuantityOfPacks / Config.SlowdownOfComplexity, Config.MaxPack) + 1);
         }
         TimeToNextPush -= Time.deltaTime;
     }
 
     private void OnDestroy()
     {
-        EventManager.OnSartGameEvent += SetStartData;
+        EventManager.OnSartGameEvent -= SetStartData;
     }
 }

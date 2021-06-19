@@ -18,6 +18,7 @@ public class MainConfig : ScriptableObject
     public float LifeTime;
 
     [Header("\tPUSHER")]
+    public ushort SlowdownOfComplexity = 10;
     public ObjectAndChance<FruitLogic>[] FruitToPush;
     public ObjectAndChance<TwoDots>[] PushLine;
     public float TimeBetweenPacks;
@@ -33,7 +34,7 @@ public class MainConfig : ScriptableObject
     public float DeviationFromCenterByX = 0.1f;
     public float Force = 200;
     public float BombMultiplier = 0.5f;
-    public float TimeSpeed = 3;
+    public float TimeSpeed = 1;
     public float TimeSpeedIncrease = 10;
     public float DeviationHalfByX = 0.5f;
     public float Gravity = -100.0f;
@@ -69,24 +70,23 @@ public struct ObjectAndChance<T>
 [System.Serializable]
 public static class ExtensionMethods
 {
-    public static T GetRandomData<T>(this ObjectAndChance<T>[] ArrayOfObjects)
+    public static int GetRandomIndex<T>(this ObjectAndChance<T>[] ArrayOfObjects)
     {
-        T Result = ArrayOfObjects[0].Object;
-
         int SumOfChances = 0;
-        foreach(var Element in ArrayOfObjects)
+        for (int i = 0; i < ArrayOfObjects.Length; i++)
         {
-            SumOfChances += Element.Chance;
+            SumOfChances += ArrayOfObjects[i].Chance;
         }
 
         int CurrentChance = Random.Range(1, SumOfChances + 1);
-        foreach(var Element in ArrayOfObjects)
+        int Result = 0;
+        for(int i = 0; i < ArrayOfObjects.Length; i++)
         {
-            CurrentChance -= Element.Chance;
+            CurrentChance -= ArrayOfObjects[i].Chance;
 
             if (CurrentChance <= 0)
             {
-                Result = Element.Object;
+                Result = i;
                 break;
             }
         }

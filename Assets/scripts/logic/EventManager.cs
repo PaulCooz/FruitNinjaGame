@@ -40,6 +40,8 @@ public class EventManager : MonoBehaviour
     
     public static void StartGame()
     {
+        if (!isGameOver) return;
+
         isGameOver = false;
         OnSartGameEvent?.Invoke();
     }

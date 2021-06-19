@@ -19,6 +19,7 @@ MonoBehaviour:
   StartHP: 3
   CutLine: {fileID: 2858421845988467349, guid: f25288978f816b0428e0840d0a7c3185, type: 3}
   LifeTime: 0.1
+  SlowdownOfComplexity: 10
   FruitToPush:
   - Object: {fileID: 8287205632535211314, guid: c653212a350975544802a8f6f0275cb8, type: 3}
     Chance: 5
@@ -30,7 +31,7 @@ MonoBehaviour:
     Chance: 5
   - Object: {fileID: -8166786568634253908, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
     Chance: 4
-  - Object: {fileID: 1960360663060375246, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
+  - Object: {fileID: 8839778088805168291, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
     Chance: 1
   PushLine:
   - Object:
@@ -60,7 +61,7 @@ MonoBehaviour:
   Force: 330
   BombMultiplier: 100
   TimeSpeed: 1
-  TimeSpeedIncrease: 3
+  TimeSpeedIncrease: 5
   DeviationHalfByX: 0.5
   Gravity: -120
   MinSpeed: 1000

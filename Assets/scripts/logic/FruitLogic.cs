@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class FruitLogic : FlyingObject
 {
+    private UiManager Ui;
+
     public FruitConfig FruitParameters;
+
+    public void Init(UiManager Ui)
+    {
+        this.Ui = Ui;
+    }
 
     private void Start()
     {
@@ -31,6 +38,7 @@ public class FruitLogic : FlyingObject
 
         EventManager.ScoreChange(FruitParameters.PointsForCut);
         EventManager.HealthChange(FruitParameters.HeartOnSwipe);
+        Ui.SendText(FruitParameters.PointsForCut, transform.position);
 
         if (FruitParameters.HaveHalves)
         {
