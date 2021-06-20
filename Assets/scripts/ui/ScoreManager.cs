@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         TextField.text = string.Format(TextView, Score, BestScore);
     }
 
-    public void AddToScore(int Change)
+    public void AddToScore(int Change, Vector2 InPosition)
     {
         Score += Change;
 

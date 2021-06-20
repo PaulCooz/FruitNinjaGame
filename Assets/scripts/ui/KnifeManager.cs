@@ -37,10 +37,8 @@ public class KnifeManager : MonoBehaviour
 
     private void MakeNewLine(Vector2 StartDot, Vector2 EndDot)
     {
-        CutLineLogic Line = Instantiate(Config.CutLine, StartDot, Quaternion.identity);
-
+        KnifeLogic Line = Instantiate(Config.CutLine, StartDot, Quaternion.identity, transform);
         Line.Init(StartDot, EndDot);
-        Line.transform.SetParent(transform);
 
         Destroy(Line.gameObject, Config.LifeTime);
     }

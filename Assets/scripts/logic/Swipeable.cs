@@ -6,6 +6,7 @@ public class Swipeable : MonoBehaviour
 
     public MainConfig Config;
     public FruitConfig FruitParameters;
+    public CutLine LinePref;
 
     private void Update()
     {
@@ -23,9 +24,18 @@ public class Swipeable : MonoBehaviour
             if (near && fast)
             {
                 gameObject.SendMessage("Cutted");
+
+                Vector2 CurrentPosition = new Vector2(transform.position.x, transform.position.y);
+                float Angle = AngleFromVector(CurrentMousePosition - CurrentPosition);
+                Instantiate(LinePref, transform.position, Quaternion.identity).Init(Angle - 90);
             }
 
             PreviousPosition = CurrentMousePosition;
         }
+    }
+
+    private float AngleFromVector(Vector2 V)
+    {
+        return Mathf.Atan(V.y / V.x) * (180 / Mathf.PI);
     }
 }

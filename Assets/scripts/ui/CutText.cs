@@ -4,14 +4,11 @@ using UnityEngine.UI;
 public class CutText : MonoBehaviour
 {
     public Text TextField;
+    public int DestroyTime = 2;
 
     public void Init(int Num)
     {
         TextField.text = string.Format(TextField.text, Num);
-    }
-
-    public void DestroyObject()
-    {
-        Destroy(gameObject);
+        Destroy(gameObject, DestroyTime);
     }
 }

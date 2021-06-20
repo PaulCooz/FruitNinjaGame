@@ -13,12 +13,13 @@ public class MainConfig : ScriptableObject
     public int StartHP = 3;
 
     [Header("\tKNIFE")]
-    public CutLineLogic CutLine;
+    public KnifeLogic CutLine;
     [Range(0, 10)]
     public float LifeTime;
 
     [Header("\tPUSHER")]
     public ushort SlowdownOfComplexity = 10;
+    public ushort MaxDivisor = 2;
     public ObjectAndChance<FruitLogic>[] FruitToPush;
     public ObjectAndChance<TwoDots>[] PushLine;
     public float TimeBetweenPacks;

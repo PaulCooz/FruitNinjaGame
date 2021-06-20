@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CutLineLogic : MonoBehaviour
+public class KnifeLogic : MonoBehaviour
 {
     public LineRenderer LineRendererField;
 

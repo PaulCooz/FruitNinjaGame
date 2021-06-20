@@ -7,7 +7,6 @@ public class Pusher : MonoBehaviour
     public MainConfig Config;
     public FruitLogic Heart;
     public HealthManager Health;
-    public UiManager Ui;
 
     public void PushNewPack(Transform SpawnTransform, int Count)
     {
@@ -35,9 +34,7 @@ public class Pusher : MonoBehaviour
     {
         yield return new WaitForSeconds(Config.TimeBetweenFruit * TimeMultiplier);
 
-        FruitLogic NewFruit = Instantiate(Config.FruitToPush[Index].Object, RandomStartPosition(), Quaternion.identity);
-        NewFruit.transform.SetParent(SpawnTransform);
-        NewFruit.Init(Ui);
+        Instantiate(Config.FruitToPush[Index].Object, RandomStartPosition(), Quaternion.identity, SpawnTransform);
      }
 
     private int RandomFruit()

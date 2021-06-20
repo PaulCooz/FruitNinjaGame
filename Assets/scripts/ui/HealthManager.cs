@@ -17,7 +17,7 @@ public class HealthManager : MonoBehaviour
         EventManager.OnHealthChange += Check;
     }
 
-    private void OnEnable()
+    private void Start()
     {
         AddHearts();
     }

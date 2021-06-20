@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02ba1a7be61f024e996b2bcb72fc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 1
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   FruitParameters: {fileID: 11400000, guid: df916ed1d87e4e44387650347de9e584, type: 2}
 --- !u!114 &5871265539719264247
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
   FruitParameters: {fileID: 11400000, guid: df916ed1d87e4e44387650347de9e584, type: 2}
+  LinePref: {fileID: 6073705271608637810, guid: 8f1fd3fb717337a4888fcbc97e708d0f, type: 3}
 --- !u!114 &913444169516901034
 MonoBehaviour:
   m_ObjectHideFlags: 0

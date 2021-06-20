@@ -33,10 +33,12 @@ public class Spawner : MonoBehaviour
         if (TimeToNextPush <= 0)
         {
             Gun.PushNewPack(transform, CurrentQuantity);
-
             QuantityOfPacks++;
-            TimeToNextPush = Config.TimeBetweenPacks;
-            CurrentQuantity = Random.Range(2, Mathf.Min(QuantityOfPacks / Config.SlowdownOfComplexity, Config.MaxPack) + 1);
+
+            int CurrentComplexity = QuantityOfPacks / Config.SlowdownOfComplexity;
+
+            TimeToNextPush = Config.TimeBetweenPacks / Mathf.Max(1, Mathf.Min(CurrentComplexity, Config.MaxDivisor));
+            CurrentQuantity = Random.Range(2, Mathf.Min(CurrentComplexity, Config.MaxPack) + 1);
         }
         TimeToNextPush -= Time.deltaTime;
     }
