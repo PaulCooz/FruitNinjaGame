@@ -25,7 +25,7 @@ public class FruitLogic : FlyingObject
         Destroy(gameObject);
     }
 
-    public void Cutted()
+    public virtual void Cutted()
     {
         Instantiate(FruitParameters.Particles, transform.position, Quaternion.identity);
 

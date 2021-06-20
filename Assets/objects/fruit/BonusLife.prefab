@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
-  FruitParameters: {fileID: 11400000, guid: ee32c03511971d246a54d3baaf6f170d, type: 2}
+  Fruit: {fileID: 8839778088805168291}
   LinePref: {fileID: 6073705271608637810, guid: 8f1fd3fb717337a4888fcbc97e708d0f, type: 3}
 --- !u!114 &4412947896890912481
 MonoBehaviour:
