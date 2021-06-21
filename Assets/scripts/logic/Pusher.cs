@@ -10,19 +10,19 @@ public class Pusher : MonoBehaviour
 
     public void PushNewPack(Transform SpawnTransform, int Count)
     {
-        Dictionary<int, int> InThisPack = new Dictionary<int, int>(Count);
+        var InThisPack = new Dictionary<FruitLogic, int>(Count);
 
         for (int i = 0; i < Count; i++)
         {
-            int ToPush = RandomFruit();
+            var ToPush = RandomFruit();
 
-            if (Config.FruitToPush[ToPush].Object == Heart && Health.Hearts.Count == Config.MaxHP)
+            if (ToPush == Heart && Health.Hearts.Count == Config.MaxHP)
             {
                 continue;
             }
 
             if (!InThisPack.ContainsKey(ToPush)) InThisPack.Add(ToPush, 0);
-            if (InThisPack[ToPush] < Config.FruitToPush[ToPush].Object.FruitParameters.MaxInPack)
+            if (InThisPack[ToPush] < ToPush.FruitParameters.MaxInPack)
             {
                 StartCoroutine(InstantiateFruit(ToPush, SpawnTransform, i));
                 InThisPack[ToPush]++;
@@ -30,21 +30,21 @@ public class Pusher : MonoBehaviour
         }
     }
 
-    IEnumerator InstantiateFruit(int Index, Transform SpawnTransform, int TimeMultiplier)
+    IEnumerator InstantiateFruit(FruitLogic Object, Transform SpawnTransform, int TimeMultiplier)
     {
         yield return new WaitForSeconds(Config.TimeBetweenFruit * TimeMultiplier);
 
-        Instantiate(Config.FruitToPush[Index].Object, RandomStartPosition(), Quaternion.identity, SpawnTransform);
+        Instantiate(Object, RandomStartPosition(), Quaternion.identity, SpawnTransform);
      }
 
-    private int RandomFruit()
+    private FruitLogic RandomFruit()
     {
-        return Config.FruitToPush.GetRandomIndex();
+        return Config.FruitToPush.GetRandomObject();
     }
 
     private Vector2 RandomStartPosition()
     {
-        var RandomLine = Config.PushLine[Config.PushLine.GetRandomIndex()].Object;
+        var RandomLine = Config.PushLine.GetRandomObject();
         Vector2 PushLineStart = View.GetPosition(RandomLine.StartX, RandomLine.StartY);
         Vector2 PushLineEnd = View.GetPosition(RandomLine.EndX, RandomLine.EndY);
         float Ratio = Random.Range(0.0f, 1.0f);

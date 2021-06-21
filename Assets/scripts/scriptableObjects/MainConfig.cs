@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Main config file", menuName = "Make main config")]
@@ -71,23 +72,27 @@ public struct ObjectAndChance<T>
 [System.Serializable]
 public static class ExtensionMethods
 {
-    public static int GetRandomIndex<T>(this ObjectAndChance<T>[] ArrayOfObjects)
+    public static T GetRandomObject<T>(this IEnumerable<ObjectAndChance<T>> ArrayOfObjects)
     {
         int SumOfChances = 0;
-        for (int i = 0; i < ArrayOfObjects.Length; i++)
+        foreach (var i in ArrayOfObjects)
         {
-            SumOfChances += ArrayOfObjects[i].Chance;
+            SumOfChances += i.Chance;
         }
 
+        var First = ArrayOfObjects.GetEnumerator();
+        First.Reset();
+        First.MoveNext();
+        T Result = First.Current.Object;
+
         int CurrentChance = Random.Range(1, SumOfChances + 1);
-        int Result = 0;
-        for(int i = 0; i < ArrayOfObjects.Length; i++)
+        foreach (var i in ArrayOfObjects)
         {
-            CurrentChance -= ArrayOfObjects[i].Chance;
+            CurrentChance -= i.Chance;
 
             if (CurrentChance <= 0)
             {
-                Result = i;
+                Result = i.Object;
                 break;
             }
         }
