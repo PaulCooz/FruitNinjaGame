@@ -4,9 +4,9 @@ public class BombLogic : FruitLogic
 {
     public override void Cutted()
     {
-        Instantiate(FruitParameters.Particles, transform.position, Quaternion.identity);
+        Instantiate(Fruit.Particles, transform.position, Quaternion.identity);
 
-        EventManager.HealthChange(FruitParameters.HeartOnSwipe);
+        EventManager.HealthChange(Fruit.HeartOnSwipe);
         EventManager.Explosion(transform.position);
 
         Destroy(gameObject);

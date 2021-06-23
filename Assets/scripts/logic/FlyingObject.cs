@@ -53,7 +53,7 @@ public class FlyingObject : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void BombExplosion(Vector2 BombPosition)
+    private void BombExplosion(Vector2 BombPosition)
     {
         Vector2 CurrentPosition = new Vector2(transform.position.x, transform.position.y);
         if (CurrentPosition == BombPosition) return;

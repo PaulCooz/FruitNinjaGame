@@ -22,18 +22,78 @@ MonoBehaviour:
   SlowdownOfComplexity: 9
   MaxDivisor: 2
   FruitToPush:
-  - Object: {fileID: 8287205632535211314, guid: c653212a350975544802a8f6f0275cb8, type: 3}
+  - Object:
+      Fruit: {fileID: 8287205632535211314, guid: c653212a350975544802a8f6f0275cb8, type: 3}
+      HeartOnFall: 1
+      HeartOnSwipe: 2
+      PointsForCut: 1
+      HaveHalves: 1
+      Half0: {fileID: -6346185476248074936, guid: 95d14718cc348d64fb8a5383f9d55487, type: 3}
+      Half1: {fileID: 115181514856220788, guid: 9e440ed530a9741449e3c8291d9cc2d7, type: 3}
+      Particles: {fileID: 2983029453124979375, guid: d8f00e97f1290464dbb1228f255072ab, type: 3}
+      FruitSprite: {fileID: 8335531303905291961, guid: c653212a350975544802a8f6f0275cb8, type: 3}
+      MaxInPack: 4
     Chance: 5
-  - Object: {fileID: 1879262115747715763, guid: cb1beac36ef39e248a7316f421709342, type: 3}
+  - Object:
+      Fruit: {fileID: 1879262115747715763, guid: cb1beac36ef39e248a7316f421709342, type: 3}
+      HeartOnFall: 1
+      HeartOnSwipe: 2
+      PointsForCut: 1
+      HaveHalves: 1
+      Half0: {fileID: 8632387564378571401, guid: e307e49ff20d73946a2d79cd8b2f04ce, type: 3}
+      Half1: {fileID: -6964838400650148741, guid: 2ddb0bb917c43ee438d3ecbaec7bd47e, type: 3}
+      Particles: {fileID: 2983029453124979375, guid: d8f00e97f1290464dbb1228f255072ab, type: 3}
+      FruitSprite: {fileID: 2206551738920043407, guid: cb1beac36ef39e248a7316f421709342, type: 3}
+      MaxInPack: 4
     Chance: 5
-  - Object: {fileID: 7018042714327379064, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
+  - Object:
+      Fruit: {fileID: 7018042714327379064, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
+      HeartOnFall: 1
+      HeartOnSwipe: 2
+      PointsForCut: 1
+      HaveHalves: 1
+      Half0: {fileID: 638547687870163081, guid: 2eb8189928766e643a1f7aa31559f84c, type: 3}
+      Half1: {fileID: 1481897303986012092, guid: 6d3f771c3f5318243a914f6e870c2a60, type: 3}
+      Particles: {fileID: 2983029453124979375, guid: d8f00e97f1290464dbb1228f255072ab, type: 3}
+      FruitSprite: {fileID: 8146660710991335395, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
+      MaxInPack: 4
     Chance: 5
-  - Object: {fileID: 2579746846486541024, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
+  - Object:
+      Fruit: {fileID: 2579746846486541024, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
+      HeartOnFall: 1
+      HeartOnSwipe: 2
+      PointsForCut: 1
+      HaveHalves: 1
+      Half0: {fileID: 638547687870163081, guid: 2eb8189928766e643a1f7aa31559f84c, type: 3}
+      Half1: {fileID: 1481897303986012092, guid: 6d3f771c3f5318243a914f6e870c2a60, type: 3}
+      Particles: {fileID: 2983029453124979375, guid: d8f00e97f1290464dbb1228f255072ab, type: 3}
+      FruitSprite: {fileID: 8034626743633976141, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
+      MaxInPack: 4
     Chance: 5
-  - Object: {fileID: -8166786568634253908, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
+  - Object:
+      Fruit: {fileID: -8166786568634253908, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
+      HeartOnFall: 2
+      HeartOnSwipe: 1
+      PointsForCut: 0
+      HaveHalves: 0
+      Half0: {fileID: 0}
+      Half1: {fileID: 0}
+      Particles: {fileID: 3463290464167429904, guid: ba5c47b378d8e1c48b87c98eb65977c2, type: 3}
+      FruitSprite: {fileID: 4848274997295530989, guid: dbc0b4eb071bfc74ba2456bd48b7ef74, type: 3}
+      MaxInPack: 3
     Chance: 4
-  - Object: {fileID: 8839778088805168291, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
-    Chance: 1
+  - Object:
+      Fruit: {fileID: 8839778088805168291, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
+      HeartOnFall: 2
+      HeartOnSwipe: 0
+      PointsForCut: 0
+      HaveHalves: 0
+      Half0: {fileID: 0}
+      Half1: {fileID: 0}
+      Particles: {fileID: 3463290464167429904, guid: ff21bfd21a7863248bb59bcf3e2b76bc, type: 3}
+      FruitSprite: {fileID: 8921525937869620909, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
+      MaxInPack: 1
+    Chance: 4
   PushLine:
   - Object:
       StartX: 0.3

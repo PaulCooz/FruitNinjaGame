@@ -16,28 +16,29 @@ public class Pusher : MonoBehaviour
         {
             var ToPush = RandomFruit();
 
-            if (ToPush == Heart && Health.Hearts.Count == Config.MaxHP)
+            if (ToPush.Fruit == Heart && Health.Hearts.Count == Config.MaxHP)
             {
                 continue;
             }
 
-            if (!InThisPack.ContainsKey(ToPush)) InThisPack.Add(ToPush, 0);
-            if (InThisPack[ToPush] < ToPush.FruitParameters.MaxInPack)
+            if (!InThisPack.ContainsKey(ToPush.Fruit)) InThisPack.Add(ToPush.Fruit, 0);
+            if (InThisPack[ToPush.Fruit] < ToPush.MaxInPack)
             {
                 StartCoroutine(InstantiateFruit(ToPush, SpawnTransform, i));
-                InThisPack[ToPush]++;
+                InThisPack[ToPush.Fruit]++;
             }
         }
     }
 
-    IEnumerator InstantiateFruit(FruitLogic Object, Transform SpawnTransform, int TimeMultiplier)
+    IEnumerator InstantiateFruit(FruitObject Object, Transform SpawnTransform, int TimeMultiplier)
     {
         yield return new WaitForSeconds(Config.TimeBetweenFruit * TimeMultiplier);
 
-        Instantiate(Object, RandomStartPosition(), Quaternion.identity, SpawnTransform);
+        var NewFruit = Instantiate(Object.Fruit, RandomStartPosition(), Quaternion.identity, SpawnTransform);
+        NewFruit.Init(Object);
      }
 
-    private FruitLogic RandomFruit()
+    private FruitObject RandomFruit()
     {
         return Config.FruitToPush.GetRandomObject();
     }

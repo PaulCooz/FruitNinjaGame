@@ -99,7 +99,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
-  FruitParameters: {fileID: 11400000, guid: df916ed1d87e4e44387650347de9e584, type: 2}
+  Fruit:
+    Fruit: {fileID: 0}
+    HeartOnFall: 0
+    HeartOnSwipe: 0
+    PointsForCut: 0
+    HaveHalves: 0
+    Half0: {fileID: 0}
+    Half1: {fileID: 0}
+    Particles: {fileID: 0}
+    FruitImage: {fileID: 0}
+    MaxInPack: 0
 --- !u!114 &5871265539719264247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}
-  Fruit: {fileID: 2579746846486541024}
+  ThisFruit: {fileID: 2579746846486541024}
   LinePref: {fileID: 6073705271608637810, guid: 8f1fd3fb717337a4888fcbc97e708d0f, type: 3}
 --- !u!114 &913444169516901034
 MonoBehaviour:

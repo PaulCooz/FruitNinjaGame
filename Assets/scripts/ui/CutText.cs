@@ -9,6 +9,7 @@ public class CutText : MonoBehaviour
     public void Init(int Num)
     {
         TextField.text = string.Format(TextField.text, Num);
+
         Destroy(gameObject, DestroyTime);
     }
 }

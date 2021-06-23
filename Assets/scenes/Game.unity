@@ -293,7 +293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3716881301839532192, guid: acdcd7e4218d2514c827edb3d7e699f0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3716881301839532192, guid: acdcd7e4218d2514c827edb3d7e699f0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -774,7 +774,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -2000044517
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d16e9e5e2ed21944b1296afeb57458d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextPref: {fileID: 1144048839318894197, guid: b31b5a0dfdb1dbe42b8d20a6b30ea27f, type: 3}
+  TextPref: {fileID: 1399927102064170127, guid: 8f8bd50410352aa4197cd46e97d4774a, type: 3}
 --- !u!1 &610027605
 GameObject:
   m_ObjectHideFlags: 0

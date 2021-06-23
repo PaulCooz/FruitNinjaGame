@@ -5,7 +5,7 @@ public class Swipeable : MonoBehaviour
     private Vector2 PreviousPosition;
 
     public MainConfig Config;
-    public FruitLogic Fruit;
+    public FruitLogic ThisFruit;
     public CutLine LinePref;
 
     private void Update()
@@ -16,24 +16,30 @@ public class Swipeable : MonoBehaviour
         {
             Vector2 CurrentMousePosition = View.ToWorldPoint(Input.mousePosition);
             float Speed = Vector2.Distance(CurrentMousePosition, PreviousPosition) / Time.deltaTime;
-            float Radius = View.GetSpriteSize(gameObject.transform.localScale, Fruit.FruitParameters.FruitImage).x / 2;
+            float Radius = View.GetSpriteSize(gameObject.transform.localScale, ThisFruit.Fruit.FruitSprite.sprite).x / 2;
 
             bool near = Vector2.Distance(transform.position, CurrentMousePosition) <= Radius;
             bool fast = Speed >= Config.MinSpeed;
 
             if (near && fast)
             {
-                Fruit.Cutted();
+                ThisFruit.Cutted();
 
-                Vector2 CurrentPosition = new Vector2(transform.position.x, transform.position.y);
-                float Angle = AngleFromVector(CurrentMousePosition - CurrentPosition);
-                Instantiate(LinePref, transform.position, Quaternion.identity).Init(Angle - 90);
+                MakeCutLine(CurrentMousePosition);
             }
 
             PreviousPosition = CurrentMousePosition;
         }
     }
 
+    private void MakeCutLine(Vector2 CurrentMousePosition)
+    {
+        Vector2 CurrentPosition = transform.position;
+        float Angle = AngleFromVector(CurrentMousePosition - CurrentPosition);
+
+        Instantiate(LinePref, transform.position, Quaternion.identity).Init(Angle);
+    }
+        
     private float AngleFromVector(Vector2 V)
     {
         return Mathf.Atan(V.y / V.x) * (180 / Mathf.PI);

@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class FruitLogic : FlyingObject
 {
-    public FruitConfig FruitParameters;
+    public FruitObject Fruit;
+
+    public void Init(FruitObject Fruit)
+    {
+        this.Fruit = Fruit;
+    }
 
     private void Start()
     {
         float DeviationByX = Random.Range(-Config.DeviationFromCenterByX, Config.DeviationFromCenterByX);
         Vector2 Mid = View.GetPosition(Config.MidX + DeviationByX, Config.MidY);
         Vector2 startPosition = new Vector2(transform.position.x, transform.position.y);
-        float Diameter = View.GetSpriteSize(gameObject.transform.localScale, FruitParameters.FruitImage).y;
+        float Diameter = View.GetSpriteSize(gameObject.transform.localScale, Fruit.FruitSprite.sprite).y;
 
         LifeTime = 0;
         Direction = (Mid - startPosition).normalized * Config.Force;
@@ -20,22 +25,22 @@ public class FruitLogic : FlyingObject
 
     public override void RemoveObject()
     {
-        EventManager.HealthChange(FruitParameters.HeartOnFall);
+        EventManager.HealthChange(Fruit.HeartOnFall);
 
         Destroy(gameObject);
     }
 
     public virtual void Cutted()
     {
-        Instantiate(FruitParameters.Particles, transform.position, Quaternion.identity);
+        Instantiate(Fruit.Particles, transform.position, Quaternion.identity);
 
-        EventManager.ScoreChange(FruitParameters.PointsForCut, transform.position);
-        EventManager.HealthChange(FruitParameters.HeartOnSwipe);
+        EventManager.ScoreChange(Fruit.PointsForCut, transform.position);
+        EventManager.HealthChange(Fruit.HeartOnSwipe);
 
-        if (FruitParameters.HaveHalves)
+        if (Fruit.HaveHalves)
         {
-            MakeHalf(FruitParameters.Half0, Config.DeviationHalfByX);
-            MakeHalf(FruitParameters.Half1, -Config.DeviationHalfByX);
+            MakeHalf(Fruit.Half0, Config.DeviationHalfByX);
+            MakeHalf(Fruit.Half1, -Config.DeviationHalfByX);
         }
 
         Destroy(gameObject);

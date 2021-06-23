@@ -14,14 +14,14 @@ public class MainConfig : ScriptableObject
     public int StartHP = 3;
 
     [Header("\tKNIFE")]
-    public KnifeLogic CutLine;
+    public KnifeViewer CutLine;
     [Range(0, 10)]
     public float LifeTime;
 
     [Header("\tPUSHER")]
     public ushort SlowdownOfComplexity = 10;
     public ushort MaxDivisor = 2;
-    public ObjectAndChance<FruitLogic>[] FruitToPush;
+    public ObjectAndChance<FruitObject>[] FruitToPush;
     public ObjectAndChance<TwoDots>[] PushLine;
     public float TimeBetweenPacks;
     public float TimeBetweenFruit;
@@ -58,6 +58,21 @@ public struct TwoDots
     public float EndX;
     [Range(0, 1)]
     public float EndY;
+}
+
+[System.Serializable]
+public struct FruitObject
+{
+    public FruitLogic Fruit;
+    public HealthManager.HP HeartOnFall;
+    public HealthManager.HP HeartOnSwipe;
+    public int PointsForCut;
+    public bool HaveHalves;
+    public HalfLogic Half0;
+    public HalfLogic Half1;
+    public GameObject Particles;
+    public SpriteRenderer FruitSprite;
+    public int MaxInPack;
 }
 
 [System.Serializable]
