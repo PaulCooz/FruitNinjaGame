@@ -108,7 +108,7 @@ MonoBehaviour:
     Half0: {fileID: 0}
     Half1: {fileID: 0}
     Particles: {fileID: 0}
-    FruitImage: {fileID: 0}
+    FruitSprite: {fileID: 0}
     MaxInPack: 0
 --- !u!114 &4357525582788041767
 MonoBehaviour:

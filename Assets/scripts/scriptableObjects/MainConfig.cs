@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using lib;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Main config file", menuName = "Make main config")]
@@ -14,7 +15,8 @@ public class MainConfig : ScriptableObject
     public int StartHP = 3;
 
     [Header("\tKNIFE")]
-    public KnifeViewer CutLine;
+    public KnifeViewer knifeViewer;
+    public CutLine cutLine;
     [Range(0, 10)]
     public float LifeTime;
 
@@ -35,7 +37,7 @@ public class MainConfig : ScriptableObject
     [Range(0, 1)]
     public float DeviationFromCenterByX = 0.1f;
     public float Force = 200;
-    public float BombMultiplier = 0.5f;
+    public float ExplosionMultiplier = 100;
     public float TimeSpeed = 1;
     public float TimeSpeedIncrease = 10;
     public float DeviationHalfByX = 0.5f;
@@ -44,74 +46,4 @@ public class MainConfig : ScriptableObject
     [Header("\tSWIPE")]
     [Range(0, 10000)]
     public float MinSpeed = 500;
-}
-
-
-[System.Serializable]
-public struct TwoDots
-{
-    [Range(0, 1)]
-    public float StartX;
-    [Range(0, 1)]
-    public float StartY;
-    [Range(0, 1)]
-    public float EndX;
-    [Range(0, 1)]
-    public float EndY;
-}
-
-[System.Serializable]
-public struct FruitObject
-{
-    public FruitLogic Fruit;
-    public HealthManager.HP HeartOnFall;
-    public HealthManager.HP HeartOnSwipe;
-    public int PointsForCut;
-    public bool HaveHalves;
-    public HalfLogic Half0;
-    public HalfLogic Half1;
-    public GameObject Particles;
-    public SpriteRenderer FruitSprite;
-    public int MaxInPack;
-}
-
-[System.Serializable]
-public struct ObjectAndChance<T>
-{
-    [SerializeField]
-    public T Object;
-    [SerializeField]
-    public ushort Chance;
-}
-
-[System.Serializable]
-public static class ExtensionMethods
-{
-    public static T GetRandomObject<T>(this IEnumerable<ObjectAndChance<T>> ArrayOfObjects)
-    {
-        int SumOfChances = 0;
-        foreach (var i in ArrayOfObjects)
-        {
-            SumOfChances += i.Chance;
-        }
-
-        var First = ArrayOfObjects.GetEnumerator();
-        First.Reset();
-        First.MoveNext();
-        T Result = First.Current.Object;
-
-        int CurrentChance = Random.Range(1, SumOfChances + 1);
-        foreach (var i in ArrayOfObjects)
-        {
-            CurrentChance -= i.Chance;
-
-            if (CurrentChance <= 0)
-            {
-                Result = i.Object;
-                break;
-            }
-        }
-
-        return Result;
-    }
 }

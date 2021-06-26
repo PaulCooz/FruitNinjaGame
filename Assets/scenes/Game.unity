@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d16e9e5e2ed21944b1296afeb57458d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextPref: {fileID: 1399927102064170127, guid: 8f8bd50410352aa4197cd46e97d4774a, type: 3}
+  TextPref: {fileID: 4194646417875413294, guid: 1fe08cecb2dd47a46be668cf5b01ecab, type: 3}
 --- !u!1 &610027605
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +979,7 @@ GameObject:
   - component: {fileID: 995889766}
   - component: {fileID: 995889768}
   - component: {fileID: 995889767}
+  - component: {fileID: 995889769}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1001,7 +1002,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1043,6 +1044,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995889765}
   m_CullTransparentMesh: 1
+--- !u!114 &995889769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995889765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 4
+  m_AspectRatio: 1.7775118
 --- !u!1 &1260600632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1627,7 @@ GameObject:
   - component: {fileID: 2005072217}
   - component: {fileID: 2005072216}
   - component: {fileID: 2005072218}
-  - component: {fileID: 2005072219}
+  - component: {fileID: 2005072220}
   m_Layer: 5
   m_Name: CurrentScoreText
   m_TagString: Untagged
@@ -1695,24 +1710,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128fa8ccfed9e5243aabaf518c0310f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextField: {fileID: 2005072216}
-  TextAnimator: {fileID: 2005072219}
---- !u!95 &2005072219
-Animator:
-  serializedVersion: 3
+--- !u!114 &2005072220
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005072214}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dc19e90f460c20a44a51f3e3a6137882, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef5c679d6a0daa40baeaf3439d01272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 2005072216}
+  scores: {fileID: 2005072218}
+  startAtBest: 90

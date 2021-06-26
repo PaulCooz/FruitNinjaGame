@@ -17,7 +17,8 @@ MonoBehaviour:
   HeartPref: {fileID: -4332198599548718310, guid: 9ae2f41a081408f4292a29804ea12069, type: 3}
   MaxHP: 4
   StartHP: 3
-  CutLine: {fileID: 7221077084271221459, guid: f25288978f816b0428e0840d0a7c3185, type: 3}
+  knifeViewer: {fileID: 7221077084271221459, guid: f25288978f816b0428e0840d0a7c3185, type: 3}
+  cutLine: {fileID: 6073705271608637810, guid: 8f1fd3fb717337a4888fcbc97e708d0f, type: 3}
   LifeTime: 0.1
   SlowdownOfComplexity: 9
   MaxDivisor: 2
@@ -26,7 +27,7 @@ MonoBehaviour:
       Fruit: {fileID: 8287205632535211314, guid: c653212a350975544802a8f6f0275cb8, type: 3}
       HeartOnFall: 1
       HeartOnSwipe: 2
-      PointsForCut: 1
+      PointsForCut: 10
       HaveHalves: 1
       Half0: {fileID: -6346185476248074936, guid: 95d14718cc348d64fb8a5383f9d55487, type: 3}
       Half1: {fileID: 115181514856220788, guid: 9e440ed530a9741449e3c8291d9cc2d7, type: 3}
@@ -38,7 +39,7 @@ MonoBehaviour:
       Fruit: {fileID: 1879262115747715763, guid: cb1beac36ef39e248a7316f421709342, type: 3}
       HeartOnFall: 1
       HeartOnSwipe: 2
-      PointsForCut: 1
+      PointsForCut: 10
       HaveHalves: 1
       Half0: {fileID: 8632387564378571401, guid: e307e49ff20d73946a2d79cd8b2f04ce, type: 3}
       Half1: {fileID: -6964838400650148741, guid: 2ddb0bb917c43ee438d3ecbaec7bd47e, type: 3}
@@ -50,7 +51,7 @@ MonoBehaviour:
       Fruit: {fileID: 7018042714327379064, guid: e909dfa90dcab1646ae5c2853deaa8fa, type: 3}
       HeartOnFall: 1
       HeartOnSwipe: 2
-      PointsForCut: 1
+      PointsForCut: 10
       HaveHalves: 1
       Half0: {fileID: 638547687870163081, guid: 2eb8189928766e643a1f7aa31559f84c, type: 3}
       Half1: {fileID: 1481897303986012092, guid: 6d3f771c3f5318243a914f6e870c2a60, type: 3}
@@ -62,10 +63,10 @@ MonoBehaviour:
       Fruit: {fileID: 2579746846486541024, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
       HeartOnFall: 1
       HeartOnSwipe: 2
-      PointsForCut: 1
+      PointsForCut: 10
       HaveHalves: 1
-      Half0: {fileID: 638547687870163081, guid: 2eb8189928766e643a1f7aa31559f84c, type: 3}
-      Half1: {fileID: 1481897303986012092, guid: 6d3f771c3f5318243a914f6e870c2a60, type: 3}
+      Half0: {fileID: 7215278167476261760, guid: 5bd96cee0bbf7264ba3637490e2163c5, type: 3}
+      Half1: {fileID: -4478892836663433086, guid: 2fa645d7f185fc147b2b260216571d60, type: 3}
       Particles: {fileID: 2983029453124979375, guid: d8f00e97f1290464dbb1228f255072ab, type: 3}
       FruitSprite: {fileID: 8034626743633976141, guid: 66c3280c4623b054bb9f32b24d15643f, type: 3}
       MaxInPack: 4
@@ -93,7 +94,19 @@ MonoBehaviour:
       Particles: {fileID: 3463290464167429904, guid: ff21bfd21a7863248bb59bcf3e2b76bc, type: 3}
       FruitSprite: {fileID: 8921525937869620909, guid: d1b2eea16a40468419b56b7fddb1b8bf, type: 3}
       MaxInPack: 1
-    Chance: 4
+    Chance: 1
+  - Object:
+      Fruit: {fileID: 7066169335473209023, guid: 21f055ae3427f474f8e16e6d4501eb2b, type: 3}
+      HeartOnFall: 2
+      HeartOnSwipe: 2
+      PointsForCut: 5
+      HaveHalves: 0
+      Half0: {fileID: 0}
+      Half1: {fileID: 0}
+      Particles: {fileID: 3463290464167429904, guid: 5c6a964e268adc049bab69eadbe40086, type: 3}
+      FruitSprite: {fileID: 8654761872711001388, guid: 21f055ae3427f474f8e16e6d4501eb2b, type: 3}
+      MaxInPack: 2
+    Chance: 2
   PushLine:
   - Object:
       StartX: 0.3
@@ -115,12 +128,12 @@ MonoBehaviour:
     Chance: 1
   TimeBetweenPacks: 2
   TimeBetweenFruit: 0.2
-  MaxPack: 5
+  MaxPack: 6
   MidX: 0.5
   MidY: 0.7
   DeviationFromCenterByX: 0.1
   Force: 330
-  BombMultiplier: 100
+  ExplosionMultiplier: 90
   TimeSpeed: 1.4
   TimeSpeedIncrease: 5
   DeviationHalfByX: 0.5
