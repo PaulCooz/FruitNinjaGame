@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.OnSartGameEvent += SetStartScore;
+        EventManager.OnStartGameEvent += SetStartScore;
         EventManager.OnScoreChange += AddToScore;
     }
 
@@ -45,7 +45,7 @@ public class ScoreManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.OnSartGameEvent -= SetStartScore;
+        EventManager.OnStartGameEvent -= SetStartScore;
         EventManager.OnScoreChange -= AddToScore;
     }
 }

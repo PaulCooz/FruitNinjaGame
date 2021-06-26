@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.OnSartGameEvent += SetStartData;
+        EventManager.OnStartGameEvent += SetStartData;
     }
 
     private void Start()
@@ -45,6 +45,6 @@ public class Spawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.OnSartGameEvent -= SetStartData;
+        EventManager.OnStartGameEvent -= SetStartData;
     }
 }

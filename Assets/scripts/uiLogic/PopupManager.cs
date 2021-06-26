@@ -8,7 +8,7 @@ public class PopupManager : MonoBehaviour
 
     private void Awake()
     {   
-        EventManager.OnSartGameEvent += Hide;
+        EventManager.OnStartGameEvent += Hide;
         EventManager.OnGameOverEvent += Show;
     }
 
@@ -47,6 +47,6 @@ public class PopupManager : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.OnGameOverEvent -= Show;
-        EventManager.OnSartGameEvent -= Hide;
+        EventManager.OnStartGameEvent -= Hide;
     }
 }

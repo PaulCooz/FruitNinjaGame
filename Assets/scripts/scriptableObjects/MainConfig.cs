@@ -37,11 +37,17 @@ public class MainConfig : ScriptableObject
     [Range(0, 1)]
     public float DeviationFromCenterByX = 0.1f;
     public float Force = 200;
-    public float ExplosionMultiplier = 100;
-    public float TimeSpeed = 1;
+    public float SpeedOfTime = 1;
     public float TimeSpeedIncrease = 10;
     public float DeviationHalfByX = 0.5f;
     public float Gravity = -100.0f;
+    public int MaxCombo = 5;
+    public float MinComboTime = 0.5f;
+    
+    [Header("\tBONUSES")]
+    public float ExplosionMultiplier = 10000;
+    public float FreezeMultiplier = 2;
+    public float MaxFreezeTime = 4;
 
     [Header("\tSWIPE")]
     [Range(0, 10000)]

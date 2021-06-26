@@ -13,7 +13,7 @@ public class HealthManager : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.OnSartGameEvent += AddHearts;
+        EventManager.OnStartGameEvent += AddHearts;
         EventManager.OnHealthChange += Check;
     }
 
@@ -66,7 +66,7 @@ public class HealthManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.OnSartGameEvent -= AddHearts;
+        EventManager.OnStartGameEvent -= AddHearts;
         EventManager.OnHealthChange -= Check;
     }
 }

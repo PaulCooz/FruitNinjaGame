@@ -48,7 +48,7 @@ public class FruitLogic : FlyingObject
         Destroy(gameObject);
     }
 
-    private void MakeHalf(HalfLogic Half, float RatioX)
+    protected void MakeHalf(HalfLogic Half, float RatioX)
     {
         HalfLogic NewHalf = Instantiate(Half, transform.position, Quaternion.identity);
         NewHalf.Init(this.MinY, new Vector2(this.Direction.x * RatioX, 0), this.LifeTime);
