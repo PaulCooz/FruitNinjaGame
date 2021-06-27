@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using lib;
 using UnityEngine;
 
@@ -48,7 +47,9 @@ public class MainConfig : ScriptableObject
     public float ExplosionMultiplier = 10000;
     public float FreezeMultiplier = 2;
     public float MaxFreezeTime = 4;
-
+    public float MaxScoreMultiplyTime = 5.0f;
+    public int ScoreMultiply = 3;
+    
     [Header("\tSWIPE")]
     [Range(0, 10000)]
     public float MinSpeed = 500;

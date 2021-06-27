@@ -118,7 +118,19 @@ MonoBehaviour:
       Particles: {fileID: 2983029453124979375, guid: d8f00e97f1290464dbb1228f255072ab, type: 3}
       FruitSprite: {fileID: 2871093901835917215, guid: 12abb63d7af59f14b811691f1ae75942, type: 3}
       MaxInPack: 2
-    Chance: 10
+    Chance: 2
+  - Object:
+      Fruit: {fileID: -6780837410175620589, guid: 1974dbaf88e0b6a40be94d213f335844, type: 3}
+      HeartOnFall: 2
+      HeartOnSwipe: 2
+      PointsForCut: 5
+      HaveHalves: 1
+      Half0: {fileID: -6346185476248074936, guid: 5e00acdb64af1ee40be84248e4873c2a, type: 3}
+      Half1: {fileID: -6346185476248074936, guid: bde57e37457311342b0bbc8897015773, type: 3}
+      Particles: {fileID: 2983029453124979375, guid: d8f00e97f1290464dbb1228f255072ab, type: 3}
+      FruitSprite: {fileID: 8335531303905291961, guid: 1974dbaf88e0b6a40be94d213f335844, type: 3}
+      MaxInPack: 1
+    Chance: 2
   PushLine:
   - Object:
       StartX: 0.3
@@ -154,4 +166,6 @@ MonoBehaviour:
   ExplosionMultiplier: 30000
   FreezeMultiplier: 3
   MaxFreezeTime: 5
+  MaxScoreMultiplyTime: 5
+  ScoreMultiply: 3
   MinSpeed: 1000

@@ -11,10 +11,14 @@ public class EventManager : MonoBehaviour
     [System.NonSerialized]
     public static float FreezeTime;
     private static float MaxFreezeTime;
+    private static float MaxScoreMultiplyTime;
+    private static float ScoreMultiplyTime;
+    private static int ScoreMultiply;
     
     public static bool isGameOver;
     public static event Action OnGameOverEvent;
     public static event Action OnStartGameEvent;
+    public static event Action OnScoreMultiplyEvent;
     public static event Action<Vector2, bool> OnExplosionEvent;
     public static event Action<HealthManager.HP> OnHealthChange;
     public static event Action<int, Vector2> OnScoreChange;
@@ -31,6 +35,8 @@ public class EventManager : MonoBehaviour
         FreezeTime = 0.0f;
         MaxCombo = Config.MaxCombo;
         MaxFreezeTime = Config.MaxFreezeTime;
+        MaxScoreMultiplyTime = Config.MaxScoreMultiplyTime;
+        ScoreMultiply = Config.ScoreMultiply;
     }
 
     private void Update()
@@ -39,6 +45,11 @@ public class EventManager : MonoBehaviour
         {
             FreezeTime -= Time.deltaTime;    
         }
+        if (ScoreMultiplyTime > 0)
+        {
+            ScoreMultiplyTime -= Time.deltaTime;
+        }
+        
         TimeFromStart += Time.deltaTime;
     }
 
@@ -52,6 +63,12 @@ public class EventManager : MonoBehaviour
         FreezeTime = MaxFreezeTime;
     }
 
+    public static void ScoreMultiplying()
+    {
+        OnScoreMultiplyEvent?.Invoke();
+        ScoreMultiplyTime = MaxScoreMultiplyTime;
+    }
+
     public static void HealthChange(HealthManager.HP Change)
     {
         OnHealthChange?.Invoke(Change);
@@ -59,6 +76,11 @@ public class EventManager : MonoBehaviour
 
     public static void ScoreChange(int Change, Vector2 InPosition)
     {
+        if (ScoreMultiplyTime > 0)
+        {
+            Change *= ScoreMultiply;
+        }
+        
         if (TimeFromStart - PreviousCutTime < MinComboTime)
         {
             Change *= Combo;
@@ -79,6 +101,11 @@ public class EventManager : MonoBehaviour
 
         isGameOver = true;
         OnGameOverEvent?.Invoke();
+    }
+
+    public static bool IsScoreMultiplying()
+    {
+        return ScoreMultiplyTime > 0;
     }
     
     public static void StartGame()
