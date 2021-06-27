@@ -37,7 +37,7 @@ public class Pusher : MonoBehaviour
 
         var NewFruit = Instantiate(Object.Fruit, RandomStartPosition(), Quaternion.identity, SpawnTransform);
         NewFruit.Init(Object);
-     }
+    }
 
     private FruitObject RandomFruit()
     {

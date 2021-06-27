@@ -1855,4 +1855,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textField: {fileID: 2005072216}
   scores: {fileID: 2005072218}
-  startAtBest: 90
+  Config: {fileID: 11400000, guid: 6569df2bcd1c8a541b19bac84daa6d98, type: 2}

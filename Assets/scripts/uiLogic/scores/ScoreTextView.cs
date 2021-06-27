@@ -9,13 +9,12 @@ public class ScoreTextView : MonoBehaviour
 
     public Text textField;
     public ScoreManager scores;
-    [Range(0, 100)]
-    public int startAtBest;
+    public MainConfig Config;
 
     private void OnEnable()
     {
         PreviousScore = 0;
-        PreviousBestScore = scores.GetBestScore() * startAtBest / 100;
+        PreviousBestScore = scores.GetBestScore() * Config.StartScoreAtBest / 100;
 
         TextView = textField.text;
         textField.text = string.Format(TextView, 0, PreviousBestScore);

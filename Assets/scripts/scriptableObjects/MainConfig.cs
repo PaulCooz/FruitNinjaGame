@@ -4,9 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Main config file", menuName = "Make main config")]
 public class MainConfig : ScriptableObject
 {
-    [Header("\tANIMATIONS")]
+    [Header("\tVIEW")]
     public float RotateSpeed;
     public float ScaleSpeed;
+    [Range(0, 100)]
+    public int StartScoreAtBest = 95;
 
     [Header("\tHEARTS")]
     public HeartViewer HeartPref;
@@ -18,6 +20,8 @@ public class MainConfig : ScriptableObject
     public CutLine cutLine;
     [Range(0, 10)]
     public float LifeTime;
+    [Range(0, 10000)]
+    public float MinSpeed = 500;
 
     [Header("\tPUSHER")]
     public ushort SlowdownOfComplexity = 10;
@@ -49,8 +53,4 @@ public class MainConfig : ScriptableObject
     public float MaxFreezeTime = 4;
     public float MaxScoreMultiplyTime = 5.0f;
     public int ScoreMultiply = 3;
-    
-    [Header("\tSWIPE")]
-    [Range(0, 10000)]
-    public float MinSpeed = 500;
 }
